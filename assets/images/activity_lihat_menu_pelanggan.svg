@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 720" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: 'Times New Roman', Times, serif; font-size: 16px; font-weight: bold; text-anchor: middle; fill: #000000; }
+      .lane-title { font-family: 'Times New Roman', Times, serif; font-size: 14px; font-weight: bold; text-anchor: middle; fill: #000000; }
+      .text-node { font-family: 'Times New Roman', Times, serif; font-size: 12px; fill: #000000; text-anchor: middle; }
+      .label-edge { font-family: 'Times New Roman', Times, serif; font-size: 11px; fill: #000000; text-anchor: middle; font-style: italic; }
+      .line { fill: none; stroke: #000000; stroke-width: 1.5; }
+      .rect-node { fill: #ffffff; stroke: #000000; stroke-width: 1.5; rx: 8; ry: 8; }
+      .diamond-node { fill: #ffffff; stroke: #000000; stroke-width: 1.5; }
+      .start-node { fill: #000000; stroke: #000000; stroke-width: 1.5; }
+      .end-node-outer { fill: #ffffff; stroke: #000000; stroke-width: 1.5; }
+      .end-node-inner { fill: #000000; }
+      .border-line { stroke: #000000; stroke-width: 1.5; fill: none; }
+      .arrow { fill: #000000; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" class="arrow" />
+    </marker>
+  </defs>
+
+  <!-- Main Background -->
+  <rect x="10" y="10" width="720" height="700" fill="#ffffff" stroke="#000000" stroke-width="2" rx="10" ry="10" />
+
+  <!-- Pool Header -->
+  <rect x="10" y="10" width="720" height="40" fill="#f0f0f0" stroke="#000000" stroke-width="2" rx="10" ry="10" />
+  <rect x="10" y="30" width="720" height="20" fill="#f0f0f0" />
+  <line x1="10" y1="50" x2="730" y2="50" stroke="#000000" stroke-width="2" />
+  <text x="370" y="34" class="title">Activity Diagram: Lihat Katalog Menu (Pelanggan)</text>
+
+  <!-- Swimlane Divider -->
+  <line x1="330" y1="50" x2="330" y2="700" class="border-line" />
+
+  <!-- Lane Headers -->
+  <rect x="10" y="50" width="320" height="30" fill="#fafafa" stroke="#000000" stroke-width="1" />
+  <rect x="330" y="50" width="400" height="30" fill="#fafafa" stroke="#000000" stroke-width="1" />
+  <text x="170" y="70" class="lane-title">Pelanggan (Aktor)</text>
+  <text x="530" y="70" class="lane-title">Sistem (Aplikasi)</text>
+
+  <!-- ================= PELANGGAN LANE ELEMENTS ================= -->
+  <circle cx="170" cy="110" r="10" class="start-node" />
+  
+  <rect x="80" y="150" width="180" height="50" class="rect-node" />
+  <text x="170" y="174" class="text-node">Mengakses Alamat Website</text>
+  <text x="170" y="188" class="text-node">Ayam Penyet Al-Barokah</text>
+
+  <rect x="80" y="400" width="180" height="50" class="rect-node" />
+  <text x="170" y="429" class="text-node">Scroll ke Bagian Grid Menu</text>
+
+  <!-- Decision: Filter? -->
+  <polygon points="170,480 240,520 170,560 100,520" class="diamond-node" />
+  <text x="170" y="524" class="text-node" style="font-size: 11px;">Memilih Filter?</text>
+
+  <!-- Action: Klik Filter (Path A) -->
+  <rect x="20" y="600" width="140" height="50" class="rect-node" />
+  <text x="90" y="624" class="text-node">Mengeklik Tombol Filter</text>
+  <text x="90" y="638" class="text-node">Kategori Menu</text>
+
+  <!-- End State (Path B) -->
+  <circle cx="280" cy="625" r="10" class="end-node-outer" />
+  <circle cx="280" cy="625" r="6" class="end-node-inner" />
+
+  <!-- ================= SISTEM LANE ELEMENTS ================= -->
+  <rect x="440" y="150" width="180" height="50" class="rect-node" />
+  <text x="530" y="174" class="text-node">Memuat Berkas index.php</text>
+  <text x="530" y="188" class="text-node">&amp; Cek Koneksi Database</text>
+
+  <!-- Decision: DB OK? -->
+  <polygon points="530,230 600,270 530,310 460,270" class="diamond-node" />
+  <text x="530" y="274" class="text-node" style="font-size: 11px;">Koneksi DB Sukses?</text>
+
+  <!-- Action: Error DB -->
+  <rect x="350" y="340" width="160" height="50" class="rect-node" />
+  <text x="430" y="364" class="text-node">Tampilkan Pesan Kesalahan</text>
+  <text x="430" y="378" class="text-node">Koneksi Database</text>
+
+  <!-- End State: Error -->
+  <circle cx="430" cy="445" r="10" class="end-node-outer" />
+  <circle cx="430" cy="445" r="6" class="end-node-inner" />
+
+  <!-- Action: Query & Tampilkan -->
+  <rect x="520" y="340" width="180" height="50" class="rect-node" />
+  <text x="610" y="364" class="text-node">Query DB &amp; Tampilkan Menu</text>
+  <text x="610" y="378" class="text-node">Lengkap di Landing Page</text>
+
+  <!-- Action: Filter JS -->
+  <rect x="440" y="600" width="180" height="50" class="rect-node" />
+  <text x="530" y="624" class="text-node">Menyaring &amp; Menyajikan Menu</text>
+  <text x="530" y="638" class="text-node">Secara Interaktif (JS Client)</text>
+
+  <!-- ================= EDGES & CONNECTIONS ================= -->
+  <!-- Start -> Akses -->
+  <line x1="170" y1="120" x2="170" y2="150" class="line" marker-end="url(#arrow)" />
+
+  <!-- Akses -> Muat (Cross Lane) -->
+  <line x1="260" y1="175" x2="440" y2="175" class="line" marker-end="url(#arrow)" />
+
+  <!-- Muat -> DB OK? -->
+  <line x1="530" y1="200" x2="530" y2="230" class="line" marker-end="url(#arrow)" />
+
+  <!-- DB OK? -> Error [Tidak] -->
+  <path d="M 460 270 L 430 270 L 430 340" class="line" marker-end="url(#arrow)" />
+  <text x="415" y="260" class="label-edge">Tidak</text>
+
+  <!-- Error -> End Error -->
+  <line x1="430" y1="390" x2="430" y2="435" class="line" marker-end="url(#arrow)" />
+
+  <!-- DB OK? -> Query [Ya] -->
+  <path d="M 600 270 L 610 270 L 610 340" class="line" marker-end="url(#arrow)" />
+  <text x="590" y="260" class="label-edge">Ya</text>
+
+  <!-- Query -> Scroll (Cross Lane) -->
+  <path d="M 610 390 L 610 425 L 260 425" class="line" marker-end="url(#arrow)" />
+
+  <!-- Scroll -> Filter? -->
+  <line x1="170" y1="450" x2="170" y2="480" class="line" marker-end="url(#arrow)" />
+
+  <!-- Filter? -> Klik Filter [Ya] -->
+  <path d="M 100 520 L 90 520 L 90 600" class="line" marker-end="url(#arrow)" />
+  <text x="110" y="510" class="label-edge">Ya</text>
+
+  <!-- Klik Filter -> Filter JS (Cross Lane) -->
+  <line x1="160" y1="625" x2="440" y2="625" class="line" marker-end="url(#arrow)" />
+
+  <!-- Filter JS -> Scroll (Loop back) -->
+  <path d="M 530 650 L 530 675 L 305 675 L 305 425 L 260 425" class="line" marker-end="url(#arrow)" />
+
+  <!-- Filter? -> End [Tidak] -->
+  <path d="M 240 520 L 280 520 L 280 615" class="line" marker-end="url(#arrow)" />
+  <text x="260" y="510" class="label-edge">Tidak</text>
+
+</svg>

@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 820" width="100%" height="100%">
+  <defs>
+    <style>
+      .class-box { fill: #ffffff; stroke: #000000; stroke-width: 1.5; }
+      .class-header { fill: #ffffff; stroke: #000000; stroke-width: 1.5; }
+      .class-title { font-family: 'Arial', sans-serif; font-size: 13px; font-weight: bold; text-anchor: middle; fill: #000000; }
+      .text-attr { font-family: 'Arial', sans-serif; font-size: 11px; fill: #000000; }
+      .text-method { font-family: 'Arial', sans-serif; font-size: 11px; fill: #000000; }
+      .line-divider { stroke: #000000; stroke-width: 1.2; }
+      .relationship-line { fill: none; stroke: #000000; stroke-width: 1.5; }
+      .multiplicity { font-family: 'Arial', sans-serif; font-size: 11px; fill: #000000; }
+      .label-relation { font-family: 'Arial', sans-serif; font-size: 11px; fill: #000000; text-anchor: middle; }
+      .arrow { fill: none; stroke: #000000; stroke-width: 1.5; }
+    </style>
+    <!-- Markers for associations -->
+    <marker id="association" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5" class="arrow" />
+    </marker>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect x="0" y="0" width="800" height="820" fill="#ffffff" />
+
+  <!-- ================= CLASS: User ================= -->
+  <g id="class_user">
+    <!-- Main Box -->
+    <rect x="290" y="40" width="220" height="210" class="class-box" />
+    <!-- Header -->
+    <rect x="290" y="40" width="220" height="25" class="class-header" />
+    <text x="400" y="57" class="class-title">User</text>
+    <!-- Attributes -->
+    <text x="300" y="82" class="text-attr">- id</text>
+    <text x="300" y="97" class="text-attr">- username</text>
+    <text x="300" y="112" class="text-attr">- password</text>
+    <text x="300" y="127" class="text-attr">- role (admin, pelanggan)</text>
+    <text x="300" y="142" class="text-attr">- nama_lengkap</text>
+    <text x="300" y="157" class="text-attr">- created_at</text>
+    <!-- Divider -->
+    <line x1="290" y1="167" x2="510" y2="167" class="line-divider" />
+    <!-- Methods -->
+    <text x="300" y="184" class="text-method">+ login</text>
+    <text x="300" y="199" class="text-method">+ logout</text>
+    <text x="300" y="214" class="text-method">+ editProfil</text>
+    <text x="300" y="229" class="text-method">+ gantiPassword</text>
+  </g>
+
+  <!-- ================= CLASS: Menu ================= -->
+  <g id="class_menu">
+    <!-- Main Box -->
+    <rect x="70" y="310" width="260" height="210" class="class-box" />
+    <!-- Header -->
+    <rect x="70" y="310" width="260" height="25" class="class-header" />
+    <text x="200" y="327" class="class-title">Menu</text>
+    <!-- Attributes -->
+    <text x="80" y="352" class="text-attr">- id</text>
+    <text x="80" y="367" class="text-attr">- nama_menu</text>
+    <text x="80" y="382" class="text-attr">- deskripsi</text>
+    <text x="80" y="397" class="text-attr">- harga</text>
+    <text x="80" y="412" class="text-attr">- kategori (makanan, minuman, paket, cemilan)</text>
+    <text x="80" y="427" class="text-attr">- foto</text>
+    <text x="80" y="442" class="text-attr">- status (tersedia, habis)</text>
+    <text x="80" y="457" class="text-attr">- created_at</text>
+    <!-- Divider -->
+    <line x1="70" y1="467" x2="330" y2="467" class="line-divider" />
+    <!-- Methods -->
+    <text x="80" y="484" class="text-method">+ tambahMenu</text>
+    <text x="80" y="499" class="text-method">+ editMenu</text>
+    <text x="80" y="514" class="text-method">+ hapusMenu</text>
+  </g>
+
+  <!-- ================= CLASS: Pesanan ================= -->
+  <g id="class_pesanan">
+    <!-- Main Box -->
+    <rect x="410" y="310" width="320" height="270" class="class-box" />
+    <!-- Header -->
+    <rect x="410" y="310" width="320" height="25" class="class-header" />
+    <text x="570" y="327" class="class-title">Pesanan</text>
+    <!-- Attributes -->
+    <text x="420" y="352" class="text-attr">- id</text>
+    <text x="420" y="367" class="text-attr">- kode_pesanan</text>
+    <text x="420" y="382" class="text-attr">- user_id</text>
+    <text x="420" y="397" class="text-attr">- nama_pemesan</text>
+    <text x="420" y="412" class="text-attr">- no_telepon</text>
+    <text x="420" y="427" class="text-attr">- alamat</text>
+    <text x="420" y="442" class="text-attr">- tipe_pesanan (dine_in, take_away, delivery)</text>
+    <text x="420" y="457" class="text-attr">- total_harga</text>
+    <text x="420" y="472" class="text-attr">- bukti_pembayaran</text>
+    <text x="420" y="487" class="text-attr">- status_pembayaran (belum_bayar, menunggu_konfirmasi,...)</text>
+    <text x="420" y="502" class="text-attr">- status_pesanan (pending, diproses, selesai, dibatalkan)</text>
+    <text x="420" y="517" class="text-attr">- tanggal_pesanan</text>
+    <!-- Divider -->
+    <line x1="410" y1="527" x2="730" y2="527" class="line-divider" />
+    <!-- Methods -->
+    <text x="420" y="544" class="text-method">+ buatPesanan</text>
+    <text x="420" y="559" class="text-method">+ updateStatusPesanan</text>
+    <text x="420" y="574" class="text-method">+ updateStatusPembayaran</text>
+    <text x="420" y="589" class="text-method">+ uploadBuktiPembayaran</text>
+  </g>
+
+  <!-- ================= CLASS: DetailPesanan ================= -->
+  <g id="class_detail_pesanan">
+    <!-- Main Box -->
+    <rect x="240" y="640" width="220" height="150" class="class-box" />
+    <!-- Header -->
+    <rect x="240" y="640" width="220" height="25" class="class-header" />
+    <text x="350" y="657" class="class-title">DetailPesanan</text>
+    <!-- Attributes -->
+    <text x="250" y="682" class="text-attr">- id</text>
+    <text x="250" y="697" class="text-attr">- pesanan_id</text>
+    <text x="250" y="712" class="text-attr">- menu_id</text>
+    <text x="250" y="727" class="text-attr">- jumlah</text>
+    <text x="250" y="742" class="text-attr">- subtotal</text>
+    <!-- Divider -->
+    <line x1="240" y1="752" x2="460" y2="752" class="line-divider" />
+    <!-- Methods -->
+    <text x="250" y="769" class="text-method">+ simpanDetail</text>
+  </g>
+
+  <!-- ================= RELATIONSHIPS ================= -->
+
+  <!-- 1. User "1" -> "0..*" Pesanan (Association) -->
+  <path d="M 400 250 L 400 280 L 570 280 L 570 310" class="relationship-line" marker-end="url(#association)" />
+  <text x="410" y="270" class="multiplicity">1</text>
+  <text x="580" y="300" class="multiplicity">0..*</text>
+  <text x="485" y="275" class="label-relation">membuat</text>
+
+  <!-- 2. Pesanan "1" -> "1..*" DetailPesanan (Association) -->
+  <path d="M 570 580 L 570 610 L 405 610 L 405 640" class="relationship-line" marker-end="url(#association)" />
+  <text x="580" y="600" class="multiplicity">1</text>
+  <text x="415" y="630" class="multiplicity">1..*</text>
+  <text x="487.5" y="605" class="label-relation">memiliki</text>
+
+  <!-- 3. Menu "1" -> "0..*" DetailPesanan (Association) -->
+  <path d="M 200 520 L 200 610 L 295 610 L 295 640" class="relationship-line" marker-end="url(#association)" />
+  <text x="210" y="540" class="multiplicity">1</text>
+  <text x="280" y="630" class="multiplicity">0..*</text>
+  <text x="247.5" y="605" class="label-relation">terdaftar_pada</text>
+
+</svg>

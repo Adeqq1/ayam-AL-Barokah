@@ -1,0 +1,91 @@
+<mxfile host="Electron" agent="5.0 (Windows)">
+  <diagram id="login-interface-bw" name="Rancangan Antarmuka Login Pelanggan">
+    <mxGraphModel dx="1236" dy="998" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="browser_frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=2;arcSize=2;fontFamily=Times New Roman;" vertex="1">
+          <mxGeometry height="750" width="1000" x="50" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="browser_top_bar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontFamily=Times New Roman;" vertex="1">
+          <mxGeometry height="40" width="1000" x="50" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="browser_dots" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontFamily=Times New Roman;" value="● ● ●" vertex="1">
+          <mxGeometry height="20" width="80" x="65" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="browser_address" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontSize=12;align=left;verticalAlign=middle;spacingLeft=10;fontFamily=Times New Roman;" value="http://localhost/ayam-penyet/login.php" vertex="1">
+          <mxGeometry height="26" width="600" x="180" y="57" as="geometry" />
+        </mxCell>
+        <mxCell id="navbar_bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontFamily=Times New Roman;" vertex="1">
+          <mxGeometry height="60" width="1000" x="50" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="logo_icon" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontSize=20;align=center;verticalAlign=middle;fontFamily=Times New Roman;" value="🔥" vertex="1">
+          <mxGeometry height="30" width="30" x="70" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="brand_name" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontFamily=Times New Roman;" value="&lt;b&gt;Ayam Penyet Al-Barokah&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="250" x="110" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_home" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontFamily=Times New Roman;" value="Home" vertex="1">
+          <mxGeometry height="30" width="60" x="650" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_menu" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontFamily=Times New Roman;" value="Menu" vertex="1">
+          <mxGeometry height="30" width="60" x="720" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_cart" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontFamily=Times New Roman;" value="Keranjang" vertex="1">
+          <mxGeometry height="30" width="80" x="790" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_login" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;fontColor=#FFFFFF;align=center;verticalAlign=middle;fontSize=13;fontFamily=Times New Roman;" value="&lt;b&gt;Masuk&lt;/b&gt;" vertex="1">
+          <mxGeometry height="32" width="70" x="890" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_register" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;align=center;verticalAlign=middle;fontSize=13;fontFamily=Times New Roman;" value="Daftar" vertex="1">
+          <mxGeometry height="32" width="70" x="970" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="login_card_border" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=2;arcSize=4;fontFamily=Times New Roman;" vertex="1">
+          <mxGeometry height="510" width="400" x="350" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="card_header_logo" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontFamily=Times New Roman;" value="🔥 Ayam Penyet Al-Barokah" vertex="1">
+          <mxGeometry height="30" width="340" x="380" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="card_header_desc" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#555555;fontFamily=Times New Roman;" value="Masuk untuk mulai memesan hidangan favorit Anda" vertex="1">
+          <mxGeometry height="20" width="340" x="380" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_username" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontFamily=Times New Roman;" value="Username" vertex="1">
+          <mxGeometry height="20" width="320" x="390" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="field_username" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=left;verticalAlign=middle;spacingLeft=35;fontColor=#888888;fontSize=13;fontFamily=Times New Roman;" value="Masukkan username" vertex="1">
+          <mxGeometry height="40" width="320" x="390" y="305" as="geometry" />
+        </mxCell>
+        <mxCell id="icon_user" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontFamily=Times New Roman;" value="👤" vertex="1">
+          <mxGeometry height="30" width="30" x="393" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_password" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontFamily=Times New Roman;" value="Password" vertex="1">
+          <mxGeometry height="20" width="320" x="390" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="field_password" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=left;verticalAlign=middle;spacingLeft=35;fontColor=#888888;fontSize=13;fontFamily=Times New Roman;" value="Masukkan password" vertex="1">
+          <mxGeometry height="40" width="320" x="390" y="385" as="geometry" />
+        </mxCell>
+        <mxCell id="icon_lock" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontFamily=Times New Roman;" value="🔒" vertex="1">
+          <mxGeometry height="30" width="30" x="393" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_submit_login" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;strokeWidth=1;fontColor=#FFFFFF;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontFamily=Times New Roman;" value="Masuk Sekarang" vertex="1">
+          <mxGeometry height="42" width="320" x="390" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="card_divider" parent="1" style="line;html=1;strokeColor=#CCCCCC;strokeWidth=1;" vertex="1">
+          <mxGeometry height="10" width="320" x="390" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_no_account" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#555555;fontFamily=Times New Roman;" value="Belum punya akun?" vertex="1">
+          <mxGeometry height="20" width="320" x="390" y="525" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_go_register" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontColor=#000000;align=center;verticalAlign=middle;fontSize=13;fontStyle=1;fontFamily=Times New Roman;" value="Daftar Akun Baru" vertex="1">
+          <mxGeometry height="36" width="320" x="390" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="link_back_home" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#444444;fontStyle=4;fontFamily=Times New Roman;" value="← Kembali ke Menu Utama" vertex="1">
+          <mxGeometry height="20" width="320" x="390" y="605" as="geometry" />
+        </mxCell>
+        <mxCell id="footer_note" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#888888;fontFamily=Times New Roman;" value="© 2026 Ayam Penyet Al-Barokah. All rights reserved." vertex="1">
+          <mxGeometry height="20" width="1000" x="50" y="760" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

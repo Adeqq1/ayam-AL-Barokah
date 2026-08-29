@@ -1,0 +1,210 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset="utf-8">
+<title>BAB V IMPLEMENTASI</title>
+<style>
+  body { font-family: "Times New Roman", Times, serif; font-size: 12pt; line-height: 1.5; }
+  h1 { font-size: 14pt; text-align: center; font-weight: bold; text-transform: uppercase; }
+  h2 { font-size: 12pt; font-weight: bold; text-transform: uppercase; margin-top: 20px; }
+  h3 { font-size: 12pt; font-weight: bold; margin-top: 15px; }
+  h4 { font-size: 12pt; font-weight: bold; font-style: italic; margin-top: 10px; }
+  table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+  th, td { border: 1px solid black; padding: 6px; }
+  th { background-color: #f2f2f2; font-weight: bold; text-align: left; }
+</style>
+</head>
+<body>
+
+<h1>BAB V<br>HASIL IMPLEMENTASI DAN PENGUJIAN SISTEM</h1>
+
+<p>Bab ini membahas tentang hasil implementasi lingkungan pengembang, basis data, antarmuka sistem (tampilan sesuai alur kerja pengguna), serta hasil pengujian Black-Box fungsionalitas dan analisis terhadap perangkat lunak yang telah dibangun.</p>
+
+<h2>5.1 HASIL IMPLEMENTASI</h2>
+<p>Implementasi sistem merupakan tahap pengaplikasian rancangan sistem ke dalam kode program dan basis data sehingga sistem dapat dijalankan secara nyata pada lingkungan produksi.</p>
+
+<h3>5.1.1 Lingkungan Implementasi (Environment)</h3>
+<p>Sistem ini dibangun dan dijalankan pada lingkungan pengembangan dengan spesifikasi:</p>
+<ol>
+  <li><b>Perangkat Keras (Hardware):</b>
+    <ul>
+      <li>Processor: Intel Core i5 / AMD Ryzen 5 (atau setara)</li>
+      <li>RAM: 8 GB DDR4</li>
+      <li>Storage: SSD (Solid State Drive)</li>
+    </ul>
+  </li>
+  <li><b>Perangkat Lunak (Software):</b>
+    <ul>
+      <li>Sistem Operasi: Windows 10/11</li>
+      <li>Web Server: Apache (melalui XAMPP / Laragon)</li>
+      <li>Database Server: MySQL / MariaDB (Port: 3306)</li>
+      <li>Bahasa Pemrograman: PHP Native, HTML5, CSS3, JavaScript (ES6)</li>
+    </ul>
+  </li>
+</ol>
+
+<h3>5.1.2 Implementasi Basis Data (Database)</h3>
+<p>Basis data relasional <code>db_pemesanan</code> diimplementasikan dengan struktur tabel berikut:</p>
+
+<h4>1. Tabel users</h4>
+<table>
+  <tr><th>Nama Kolom</th><th>Tipe Data</th><th>Atribut</th><th>Keterangan</th></tr>
+  <tr><td>id</td><td>INT</td><td>PK, AI</td><td>Primary Key, auto increment.</td></tr>
+  <tr><td>username</td><td>VARCHAR(50)</td><td>UNIQUE</td><td>Username unik untuk login.</td></tr>
+  <tr><td>password</td><td>VARCHAR(255)</td><td>-</td><td>Password pengguna (hashed).</td></tr>
+  <tr><td>nama_lengkap</td><td>VARCHAR(100)</td><td>-</td><td>Nama lengkap pemilik akun.</td></tr>
+  <tr><td>role</td><td>ENUM('admin','pelanggan')</td><td>-</td><td>Hak akses sistem.</td></tr>
+  <tr><td>created_at</td><td>TIMESTAMP</td><td>-</td><td>Waktu pembuatan akun.</td></tr>
+</table>
+
+<h4>2. Tabel menu</h4>
+<table>
+  <tr><th>Nama Kolom</th><th>Tipe Data</th><th>Atribut</th><th>Keterangan</th></tr>
+  <tr><td>id</td><td>INT</td><td>PK, AI</td><td>Primary Key, auto increment.</td></tr>
+  <tr><td>nama_menu</td><td>VARCHAR(100)</td><td>-</td><td>Nama hidangan/minuman.</td></tr>
+  <tr><td>deskripsi</td><td>TEXT</td><td>NULL</td><td>Detail komposisi menu.</td></tr>
+  <tr><td>harga</td><td>INT</td><td>-</td><td>Harga dalam Rupiah.</td></tr>
+  <tr><td>kategori</td><td>ENUM</td><td>-</td><td>makanan, minuman, paket, cemilan.</td></tr>
+  <tr><td>foto</td><td>VARCHAR(255)</td><td>-</td><td>Nama file foto.</td></tr>
+  <tr><td>status</td><td>ENUM('tersedia','habis')</td><td>-</td><td>Status stok.</td></tr>
+</table>
+
+<h4>3. Tabel pesanan</h4>
+<table>
+  <tr><th>Nama Kolom</th><th>Tipe Data</th><th>Atribut</th><th>Keterangan</th></tr>
+  <tr><td>id</td><td>INT</td><td>PK, AI</td><td>Primary Key, auto increment.</td></tr>
+  <tr><td>kode_pesanan</td><td>VARCHAR(20)</td><td>UNIQUE</td><td>Kode transaksi (ALB-...).</td></tr>
+  <tr><td>user_id</td><td>INT</td><td>FK, NULL</td><td>Relasi ke tabel users.</td></tr>
+  <tr><td>nama_pemesan</td><td>VARCHAR(100)</td><td>-</td><td>Nama pemesan.</td></tr>
+  <tr><td>no_telepon</td><td>VARCHAR(20)</td><td>-</td><td>No kontak pelanggan.</td></tr>
+  <tr><td>alamat</td><td>TEXT</td><td>NULL</td><td>Alamat pengiriman.</td></tr>
+  <tr><td>tipe_pesanan</td><td>ENUM</td><td>-</td><td>dine_in, take_away, delivery.</td></tr>
+  <tr><td>total_harga</td><td>INT</td><td>-</td><td>Total bayar.</td></tr>
+  <tr><td>bukti_pembayaran</td><td>VARCHAR(255)</td><td>NULL</td><td>File bukti transfer.</td></tr>
+  <tr><td>status_pembayaran</td><td>ENUM</td><td>-</td><td>belum_bayar, menunggu_konfirmasi, lunas, ditolak.</td></tr>
+  <tr><td>status_pesanan</td><td>ENUM</td><td>-</td><td>pending, diproses, selesai, dibatalkan.</td></tr>
+</table>
+
+<h4>4. Tabel detail_pesanan</h4>
+<table>
+  <tr><th>Nama Kolom</th><th>Tipe Data</th><th>Atribut</th><th>Keterangan</th></tr>
+  <tr><td>id</td><td>INT</td><td>PK, AI</td><td>Primary Key, auto increment.</td></tr>
+  <tr><td>pesanan_id</td><td>INT</td><td>FK</td><td>Relasi ke tabel pesanan.</td></tr>
+  <tr><td>menu_id</td><td>INT</td><td>FK</td><td>Relasi ke tabel menu.</td></tr>
+  <tr><td>jumlah</td><td>INT</td><td>-</td><td>Kuantitas porsi item.</td></tr>
+  <tr><td>harga_satuan</td><td>INT</td><td>-</td><td>Harga satuan menu.</td></tr>
+</table>
+
+
+<h3>5.1.3 Implementasi Antarmuka Sistem (Interface)</h3>
+<p>Antarmuka sistem ini dikelompokkan berdasarkan alur kerja pengguna dari mulai halaman depan, alur pelanggan, hingga alur admin.</p>
+
+<h4>A. Halaman Utama dan Autentikasi</h4>
+<p><b>1. Halaman Utama Beranda (index.php)</b><br>
+Menampilkan daftar katalog menu lengkap sebagai halaman penyambutan awal untuk pelanggan.</p>
+<p><b>2. Halaman Registrasi (register.php)</b><br>
+Form pembuatan akun bagi pelanggan baru.</p>
+<table>
+  <tr><th>Elemen</th><th>Jenis Elemen</th><th>Fungsi</th></tr>
+  <tr><td>Nama Lengkap</td><td>Input Text</td><td>Mengisi nama lengkap pelanggan.</td></tr>
+  <tr><td>Username</td><td>Input Text</td><td>Membuat username login.</td></tr>
+  <tr><td>Password</td><td>Input Password</td><td>Membuat kata sandi keamanan.</td></tr>
+  <tr><td>Daftar</td><td>Button Submit</td><td>Mendaftarkan akun ke database.</td></tr>
+</table>
+<p><b>3. Halaman Login (login.php)</b><br>
+Form autentikasi bagi pelanggan atau admin untuk masuk ke sistem.</p>
+<table>
+  <tr><th>Elemen</th><th>Jenis Elemen</th><th>Fungsi</th></tr>
+  <tr><td>Username & Password</td><td>Input Text/Password</td><td>Input kredensial.</td></tr>
+  <tr><td>Login</td><td>Button Submit</td><td>Validasi hak akses dan membuat sesi login.</td></tr>
+</table>
+
+<h4>B. Alur Antarmuka Pelanggan</h4>
+<p><b>1. Halaman Dashboard Pelanggan (pelanggan/index.php)</b><br>
+Menampilkan profil singkat pelanggan dan daftar riwayat pesanan (History) dari transaksi sebelumnya beserta statusnya.</p>
+<p><b>2. Halaman Keranjang Belanja (fitur_pemesanan/keranjang.php)</b><br>
+Menampilkan daftar produk yang ingin dibeli pelanggan.</p>
+<table>
+  <tr><th>Elemen</th><th>Jenis Elemen</th><th>Fungsi</th></tr>
+  <tr><td>Kuantitas Item (+/-)</td><td>Input Number</td><td>Menambah atau mengurangi jumlah porsi pesanan.</td></tr>
+  <tr><td>Tombol Hapus</td><td>Button / Link</td><td>Menghapus item menu dari keranjang.</td></tr>
+  <tr><td>Total & Checkout</td><td>Text & Button</td><td>Menampilkan subtotal biaya dan melangkah ke checkout.</td></tr>
+</table>
+<p><b>3. Halaman Checkout Pesanan (fitur_pemesanan/checkout.php)</b><br>
+Formulir pengumpulan data pengiriman dan tipe pesanan pelanggan.</p>
+<table>
+  <tr><th>Elemen</th><th>Jenis Elemen</th><th>Fungsi</th></tr>
+  <tr><td>Nama & Telepon</td><td>Input Text/Tel</td><td>Data diri kontak yang bisa dihubungi.</td></tr>
+  <tr><td>Tipe Pesanan</td><td>Select Option</td><td>Pilihan: Dine-in, Take-away, atau Delivery.</td></tr>
+  <tr><td>Alamat</td><td>Textarea</td><td>Alamat tujuan (Wajib jika memilih Delivery).</td></tr>
+  <tr><td>Total Akhir</td><td>Label Text</td><td>Menampilkan total biaya + ongkir jika ada.</td></tr>
+</table>
+<p><b>4. Halaman Konfirmasi Pembayaran (fitur_pemesanan/konfirmasi-bayar.php)</b><br>
+Menampilkan rincian rekening tujuan dan status pemrosesan, serta form upload bukti bayar.</p>
+<table>
+  <tr><th>Elemen</th><th>Jenis Elemen</th><th>Fungsi</th></tr>
+  <tr><td>Informasi Tagihan</td><td>Text HTML</td><td>Nominal total yang harus ditransfer dan No Rekening admin.</td></tr>
+  <tr><td>Upload Struk</td><td>Input File</td><td>Memilih file gambar struk (JPG/PNG).</td></tr>
+  <tr><td>Status Terkini</td><td>Badge CSS</td><td>Visualisasi status "Menunggu Konfirmasi" / "Diproses".</td></tr>
+</table>
+
+<h4>C. Alur Antarmuka Admin</h4>
+<p><b>1. Halaman Dashboard Admin (admin/index.php)</b><br>
+Menyajikan panel ringkasan performa operasional berupa Total Pesanan, Omzet Pendapatan, dan antrean pesanan masuk.</p>
+<p><b>2. Halaman Kelola Menu (admin/kelola_menu.php)</b><br>
+Modul CRUD untuk katalog menu warung.</p>
+<table>
+  <tr><th>Elemen</th><th>Jenis Elemen</th><th>Fungsi</th></tr>
+  <tr><td>Form Tambah/Edit</td><td>Form (Text, File)</td><td>Form untuk mengisi Nama Menu, Harga, Kategori, Status dan Foto.</td></tr>
+  <tr><td>Tabel Data Menu</td><td>Tabel HTML</td><td>Menampilkan seluruh produk yang terdaftar beserta tombol aksi.</td></tr>
+</table>
+<p><b>3. Halaman Kelola Pesanan (admin/kelola_pesanan.php)</b><br>
+Tempat admin memonitor transaksi masuk, memvalidasi bukti bayar, dan mengupdate proses dapur.</p>
+<table>
+  <tr><th>Elemen</th><th>Jenis Elemen</th><th>Fungsi</th></tr>
+  <tr><td>Tabel Antrean</td><td>Tabel HTML</td><td>Daftar transaksi, nama pemesan, dan tipe pesanan.</td></tr>
+  <tr><td>Zoom Bukti Bayar</td><td>Image Modal</td><td>Memperbesar gambar unggahan struk pembeli untuk divalidasi.</td></tr>
+  <tr><td>Update Status</td><td>Select Option</td><td>Mengubah status_pembayaran (Lunas/Ditolak) dan status_pesanan.</td></tr>
+</table>
+<p><b>4. Halaman Laporan Penjualan (admin/laporan.php)</b><br>
+Menyajikan rekapitulasi data pendapatan periodik.</p>
+<table>
+  <tr><th>Elemen</th><th>Jenis Elemen</th><th>Fungsi</th></tr>
+  <tr><td>Filter Tanggal</td><td>Input Date</td><td>Menentukan tanggal awal dan akhir pencarian data.</td></tr>
+  <tr><td>Rekapitulasi Omzet</td><td>Tabel HTML</td><td>Daftar transaksi berhasil dan total akumulasi nominal uang.</td></tr>
+  <tr><td>Tombol Cetak</td><td>Button Print</td><td>Memicu dialog printer browser dengan gaya format khusus laporan fisik.</td></tr>
+</table>
+
+<h2>5.2 HASIL PENGUJIAN SISTEM (TESTING)</h2>
+<p>Pengujian dilakukan menggunakan <b>Black-Box Testing</b> untuk memvalidasi fungsionalitas fitur berdasarkan input dan output tanpa memeriksa logika kode (backend) secara spesifik.</p>
+
+<h3>5.2.1 Skenario Pengujian Black-Box</h3>
+
+<h4>1. Pengujian Fungsionalitas Aktor: Pelanggan</h4>
+<table>
+  <tr><th>No</th><th>Fungsi Uji</th><th>Prosedur Pengujian</th><th>Hasil yang Diharapkan</th><th>Status</th></tr>
+  <tr><td>1</td><td>Katalog Menu</td><td>Mengakses index, menekan filter kategori.</td><td>Menu tampil tersaring instan.</td><td style="color:green;font-weight:bold">BERHASIL</td></tr>
+  <tr><td>2</td><td>Keranjang</td><td>Tambah menu, rubah kuantitas di keranjang.</td><td>Kuantitas dan subtotal harga terupdate akurat.</td><td style="color:green;font-weight:bold">BERHASIL</td></tr>
+  <tr><td>3</td><td>Checkout</td><td>Isi form data diri dan pilih tipe pesanan.</td><td>Pesanan tercatat di basis data, total harga tersimpan.</td><td style="color:green;font-weight:bold">BERHASIL</td></tr>
+  <tr><td>4</td><td>Konfirmasi Bayar</td><td>Upload foto struk transfer berformat JPG/PNG.</td><td>File terupload aman, status berubah ke 'Menunggu'.</td><td style="color:green;font-weight:bold">BERHASIL</td></tr>
+  <tr><td>5</td><td>Pelacakan Status</td><td>Akses riwayat pesanan (Dashboard Pelanggan).</td><td>Badge status terkini muncul secara real-time.</td><td style="color:green;font-weight:bold">BERHASIL</td></tr>
+</table>
+
+<h4>2. Pengujian Fungsionalitas Aktor: Admin</h4>
+<table>
+  <tr><th>No</th><th>Fungsi Uji</th><th>Prosedur Pengujian</th><th>Hasil yang Diharapkan</th><th>Status</th></tr>
+  <tr><td>1</td><td>Autentikasi</td><td>Login username & password valid.</td><td>Masuk ke Dashboard panel admin aman.</td><td style="color:green;font-weight:bold">BERHASIL</td></tr>
+  <tr><td>2</td><td>Kelola Menu</td><td>Aksi Tambah, Edit, Hapus menu baru & foto.</td><td>Data tersimpan/terubah di DB, file foto terhapus jika menu dihapus.</td><td style="color:green;font-weight:bold">BERHASIL</td></tr>
+  <tr><td>3</td><td>Kelola Pesanan</td><td>Ganti opsi Status Pembayaran dan Status Pesanan.</td><td>Perubahan status langsung terbaca pada halaman pelanggan.</td><td style="color:green;font-weight:bold">BERHASIL</td></tr>
+  <tr><td>4</td><td>Laporan Cetak</td><td>Pilih tanggal dan tekan tombol Print.</td><td>Cetak laporan hanya menampilkan tabel tanpa sidebar admin (rapi).</td><td style="color:green;font-weight:bold">BERHASIL</td></tr>
+</table>
+
+<h2>5.3 KESIMPULAN IMPLEMENTASI DAN PENGUJIAN</h2>
+<p>Berdasarkan seluruh proses implementasi dan pengujian kotak hitam, disimpulkan bahwa:</p>
+<ol>
+  <li><b>Otomatisasi Transaksi Berhasil:</b> Sistem berhasil mengintegrasikan pemesanan pelanggan ke panel antrean admin. Proses manual penulisan nota sukses tergantikan oleh pencatatan digital.</li>
+  <li><b>Kemudahan Penggunaan Antarmuka:</b> Tampilan antarmuka yang diimplementasikan berdasarkan alur aktor (Pelanggan -&gt; Admin) berjalan dengan intuitif dan minim kendala.</li>
+  <li><b>Keandalan dan Fungsionalitas:</b> Seluruh fitur pengujian utama (CRUD Menu, Kalkulasi Harga Keranjang, Upload Bukti Transfer, Pencetakan Laporan) dinyatakan <b>100% Berhasil</b> (Passed) dan memenuhi syarat fungsional operasional pemesanan online Ayam Penyet Al-Barokah.</li>
+</ol>
+
+</body>
+</html>

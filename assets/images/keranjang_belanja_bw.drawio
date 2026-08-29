@@ -1,0 +1,127 @@
+<mxfile host="Electron" agent="5.0 (Windows)">
+  <diagram id="keranjang-belanja-bw" name="Rancangan Antarmuka Keranjang Belanja">
+    <mxGraphModel dx="1046" dy="845" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="browser_frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=2;arcSize=2;fontFamily=Times New Roman;" vertex="1">
+          <mxGeometry height="750" width="1000" x="50" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="navbar_bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontFamily=Times New Roman;" vertex="1">
+          <mxGeometry height="60" width="1000" x="50" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="brand_name" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontFamily=Times New Roman;" value="&lt;b&gt;Ayam Penyet Al-Barokah&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="250" x="110" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_home" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontFamily=Times New Roman;" value="Beranda" vertex="1">
+          <mxGeometry height="30" width="70" x="650" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_menu" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontFamily=Times New Roman;" value="Menu" vertex="1">
+          <mxGeometry height="30" width="60" x="730" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_cart" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;align=center;verticalAlign=middle;fontSize=13;fontFamily=Times New Roman;" value="&lt;b&gt;Keranjang (2)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="32" width="110" x="800" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_login" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontFamily=Times New Roman;" value="Login" vertex="1">
+          <mxGeometry height="30" width="60" x="930" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="cart_card_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=2;arcSize=3;fontFamily=Times New Roman;" vertex="1">
+          <mxGeometry height="510" width="860" x="120" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="cart_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontFamily=Times New Roman;" value="Keranjang Belanja" vertex="1">
+          <mxGeometry height="40" width="400" x="150" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="table_border" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;strokeWidth=1;arcSize=1;fontFamily=Times New Roman;" vertex="1">
+          <mxGeometry height="180" width="800" x="150" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_no" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=1;align=center;verticalAlign=middle;fontSize=13;fontStyle=1;fontFamily=Times New Roman;" value="No" vertex="1">
+          <mxGeometry height="40" width="50" x="150" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_menu" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=1;align=center;verticalAlign=middle;fontSize=13;fontStyle=1;fontFamily=Times New Roman;" value="Menu" vertex="1">
+          <mxGeometry height="40" width="250" x="200" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_harga" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=1;align=center;verticalAlign=middle;fontSize=13;fontStyle=1;fontFamily=Times New Roman;" value="Harga" vertex="1">
+          <mxGeometry height="40" width="110" x="450" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_jumlah" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=1;align=center;verticalAlign=middle;fontSize=13;fontStyle=1;fontFamily=Times New Roman;" value="Jumlah" vertex="1">
+          <mxGeometry height="40" width="110" x="560" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_subtotal" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=1;align=center;verticalAlign=middle;fontSize=13;fontStyle=1;fontFamily=Times New Roman;" value="Subtotal" vertex="1">
+          <mxGeometry height="40" width="130" x="670" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_aksi" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=1;align=center;verticalAlign=middle;fontSize=13;fontStyle=1;fontFamily=Times New Roman;" value="Aksi" vertex="1">
+          <mxGeometry height="40" width="150" x="800" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="row1_no" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontSize=13;fontFamily=Times New Roman;" value="1" vertex="1">
+          <mxGeometry height="70" width="50" x="150" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="row1_menu" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=left;verticalAlign=middle;spacingLeft=10;fontSize=13;fontFamily=Times New Roman;" value="&lt;b&gt;Ayam Penyet Biasa&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#555555&quot;&gt;Kategori: Makanan&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="250" x="200" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="row1_harga" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontSize=13;fontFamily=Times New Roman;" value="Rp 18.000" vertex="1">
+          <mxGeometry height="70" width="110" x="450" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="row1_jumlah" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontSize=13;fontFamily=Times New Roman;" value="" vertex="1">
+          <mxGeometry height="70" width="110" x="560" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="row1_dec" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontFamily=Times New Roman;" value="-" vertex="1">
+          <mxGeometry height="30" width="25" x="575" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="row1_val" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontFamily=Times New Roman;" value="2" vertex="1">
+          <mxGeometry height="30" width="30" x="600" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="row1_inc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontFamily=Times New Roman;" value="+" vertex="1">
+          <mxGeometry height="30" width="25" x="630" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="row1_subtotal" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontSize=13;fontStyle=1;fontFamily=Times New Roman;" value="Rp 36.000" vertex="1">
+          <mxGeometry height="70" width="130" x="670" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="row1_aksi" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontSize=13;fontFamily=Times New Roman;" value="" vertex="1">
+          <mxGeometry height="70" width="150" x="800" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="row1_del" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontSize=12;fontFamily=Times New Roman;" value="🗑️ Hapus" vertex="1">
+          <mxGeometry height="30" width="90" x="830" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="row2_no" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontSize=13;fontFamily=Times New Roman;" value="2" vertex="1">
+          <mxGeometry height="70" width="50" x="150" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="row2_menu" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=left;verticalAlign=middle;spacingLeft=10;fontSize=13;fontFamily=Times New Roman;" value="&lt;b&gt;Es Teh Manis&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#555555&quot;&gt;Kategori: Minuman&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="250" x="200" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="row2_harga" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontSize=13;fontFamily=Times New Roman;" value="Rp 5.000" vertex="1">
+          <mxGeometry height="70" width="110" x="450" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="row2_jumlah" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontSize=13;fontFamily=Times New Roman;" value="" vertex="1">
+          <mxGeometry height="70" width="110" x="560" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="row2_dec" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontFamily=Times New Roman;" value="-" vertex="1">
+          <mxGeometry height="30" width="25" x="575" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="row2_val" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontFamily=Times New Roman;" value="3" vertex="1">
+          <mxGeometry height="30" width="30" x="600" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="row2_inc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontFamily=Times New Roman;" value="+" vertex="1">
+          <mxGeometry height="30" width="25" x="630" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="row2_subtotal" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontSize=13;fontStyle=1;fontFamily=Times New Roman;" value="Rp 15.000" vertex="1">
+          <mxGeometry height="70" width="130" x="670" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="row2_aksi" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontSize=13;fontFamily=Times New Roman;" value="" vertex="1">
+          <mxGeometry height="70" width="150" x="800" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="row2_del" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontSize=12;fontFamily=Times New Roman;" value="🗑️ Hapus" vertex="1">
+          <mxGeometry height="30" width="90" x="830" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="total_belanja_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontFamily=Times New Roman;" value="Total Belanja: &lt;b&gt;Rp 51.000&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="300" x="650" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_checkout" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontFamily=Times New Roman;" value="Lanjut ke Checkout" vertex="1">
+          <mxGeometry height="45" width="220" x="730" y="525" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_back" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontColor=#444444;fontStyle=4;fontFamily=Times New Roman;" value="← Kembali ke Menu Utama" vertex="1">
+          <mxGeometry height="30" width="200" x="150" y="530" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

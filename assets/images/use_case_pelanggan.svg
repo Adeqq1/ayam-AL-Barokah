@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700" width="100%" height="100%" style="background-color: #0f172a; font-family: 'Inter', system-ui, -apple-system, sans-serif;">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="usecaseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" /> <!-- Indigo 600 -->
+      <stop offset="100%" stop-color="#06b6d4" /> <!-- Cyan 500 -->
+    </linearGradient>
+    
+    <!-- Shadow Filter -->
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Title of Diagram -->
+  <text x="400" y="45" font-size="22" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="1">
+    USE CASE DIAGRAM: PELANGGAN
+  </text>
+  
+  <!-- System Boundary -->
+  <rect x="220" y="80" width="500" height="560" rx="16" fill="#1e293b" stroke="#334155" stroke-width="2" filter="url(#dropShadow)"/>
+  <text x="470" y="115" font-size="14" font-weight="700" fill="#94a3b8" text-anchor="middle" letter-spacing="1.5">
+    SYSTEM BOUNDARY: AYAM PENYET AL-BAROKAH
+  </text>
+
+  <!-- Actor: Pelanggan (Left) -->
+  <g transform="translate(100, 360)" filter="url(#dropShadow)">
+    <!-- Head -->
+    <circle cx="0" cy="-40" r="16" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
+    <!-- Body -->
+    <line x1="0" y1="-24" x2="0" y2="25" stroke="#38bdf8" stroke-width="3"/>
+    <!-- Arms -->
+    <line x1="-25" y1="-10" x2="25" y2="-10" stroke="#38bdf8" stroke-width="3"/>
+    <!-- Legs -->
+    <line x1="0" y1="25" x2="-18" y2="65" stroke="#38bdf8" stroke-width="3"/>
+    <line x1="0" y1="25" x2="18" y2="65" stroke="#38bdf8" stroke-width="3"/>
+    <!-- Label -->
+    <text x="0" y="95" font-size="16" font-weight="700" fill="#38bdf8" text-anchor="middle">Pelanggan</text>
+    <text x="0" y="112" font-size="12" font-weight="500" fill="#64748b" text-anchor="middle">(Customer/Guest)</text>
+  </g>
+
+  <!-- Connections (Actor to Use Cases) -->
+  <!-- Pelanggan: 100, 360. Connects to left edge of ellipses (around X=340) -->
+  <line x1="125" y1="350" x2="340" y2="170" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="125" y1="350" x2="340" y2="270" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="125" y1="350" x2="340" y2="370" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="125" y1="350" x2="340" y2="470" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+  <line x1="125" y1="350" x2="340" y2="570" stroke="#94a3b8" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- ================= USE CASES ================= -->
+  
+  <!-- Use Case 1: Lihat Katalog Menu -->
+  <g transform="translate(450, 170)" filter="url(#dropShadow)">
+    <ellipse cx="0" cy="0" rx="110" ry="28" fill="url(#usecaseGrad)" stroke="#818cf8" stroke-width="1.5"/>
+    <text x="0" y="5" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">Lihat Katalog Menu</text>
+  </g>
+
+  <!-- Use Case 2: Kelola Keranjang Belanja -->
+  <g transform="translate(450, 270)" filter="url(#dropShadow)">
+    <ellipse cx="0" cy="0" rx="110" ry="28" fill="url(#usecaseGrad)" stroke="#818cf8" stroke-width="1.5"/>
+    <text x="0" y="-3" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">Kelola Keranjang</text>
+    <text x="0" y="13" font-size="12" font-weight="600" fill="#e0e7ff" text-anchor="middle">Belanja</text>
+  </g>
+
+  <!-- Use Case 3: Melakukan Checkout Pesanan -->
+  <g transform="translate(450, 370)" filter="url(#dropShadow)">
+    <ellipse cx="0" cy="0" rx="110" ry="28" fill="url(#usecaseGrad)" stroke="#818cf8" stroke-width="1.5"/>
+    <text x="0" y="-3" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">Melakukan Checkout</text>
+    <text x="0" y="13" font-size="12" font-weight="600" fill="#e0e7ff" text-anchor="middle">Pesanan</text>
+  </g>
+
+  <!-- Use Case 4: Mengunggah Bukti Pembayaran -->
+  <g transform="translate(450, 470)" filter="url(#dropShadow)">
+    <ellipse cx="0" cy="0" rx="110" ry="28" fill="url(#usecaseGrad)" stroke="#818cf8" stroke-width="1.5"/>
+    <text x="0" y="-3" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">Mengunggah Bukti</text>
+    <text x="0" y="13" font-size="12" font-weight="600" fill="#e0e7ff" text-anchor="middle">Pembayaran</text>
+  </g>
+
+  <!-- Use Case 5: Memantau Status Pesanan -->
+  <g transform="translate(450, 570)" filter="url(#dropShadow)">
+    <ellipse cx="0" cy="0" rx="110" ry="28" fill="url(#usecaseGrad)" stroke="#818cf8" stroke-width="1.5"/>
+    <text x="0" y="-3" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">Memantau Status</text>
+    <text x="0" y="13" font-size="12" font-weight="600" fill="#e0e7ff" text-anchor="middle">Pesanan</text>
+  </g>
+
+</svg>

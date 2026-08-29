@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 760" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: 'Times New Roman', Times, serif; font-size: 16px; font-weight: bold; text-anchor: middle; fill: #000000; }
+      .lane-title { font-family: 'Times New Roman', Times, serif; font-size: 14px; font-weight: bold; text-anchor: middle; fill: #000000; }
+      .text-node { font-family: 'Times New Roman', Times, serif; font-size: 12px; fill: #000000; text-anchor: middle; }
+      .label-edge { font-family: 'Times New Roman', Times, serif; font-size: 11px; fill: #000000; text-anchor: middle; font-style: italic; }
+      .line { fill: none; stroke: #000000; stroke-width: 1.5; }
+      .rect-node { fill: #ffffff; stroke: #000000; stroke-width: 1.5; rx: 8; ry: 8; }
+      .diamond-node { fill: #ffffff; stroke: #000000; stroke-width: 1.5; }
+      .start-node { fill: #000000; stroke: #000000; stroke-width: 1.5; }
+      .end-node-outer { fill: #ffffff; stroke: #000000; stroke-width: 1.5; }
+      .end-node-inner { fill: #000000; }
+      .border-line { stroke: #000000; stroke-width: 1.5; fill: none; }
+      .arrow { fill: #000000; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" class="arrow" />
+    </marker>
+  </defs>
+
+  <!-- Main Background -->
+  <rect x="10" y="10" width="720" height="740" fill="#ffffff" stroke="#000000" stroke-width="2" rx="10" ry="10" />
+
+  <!-- Pool Header -->
+  <rect x="10" y="10" width="720" height="40" fill="#f0f0f0" stroke="#000000" stroke-width="2" rx="10" ry="10" />
+  <rect x="10" y="30" width="720" height="20" fill="#f0f0f0" />
+  <line x1="10" y1="50" x2="730" y2="50" stroke="#000000" stroke-width="2" />
+  <text x="370" y="34" class="title">Activity Diagram: Melihat Laporan Penjualan</text>
+
+  <!-- Swimlane Divider -->
+  <line x1="330" y1="50" x2="330" y2="740" class="border-line" />
+
+  <!-- Lane Headers -->
+  <rect x="10" y="50" width="320" height="30" fill="#fafafa" stroke="#000000" stroke-width="1" />
+  <rect x="330" y="50" width="400" height="30" fill="#fafafa" stroke="#000000" stroke-width="1" />
+  <text x="170" y="70" class="lane-title">Admin (Aktor)</text>
+  <text x="530" y="70" class="lane-title">Sistem (Aplikasi)</text>
+
+  <!-- ================= ADMIN LANE ELEMENTS ================= -->
+  <circle cx="170" cy="110" r="10" class="start-node" />
+  
+  <rect x="80" y="150" width="180" height="50" class="rect-node" />
+  <text x="170" y="174" class="text-node">Mengakses Halaman Laporan</text>
+  <text x="170" y="188" class="text-node">Penjualan (laporan.php)</text>
+
+  <!-- Decision: Memilih Aksi -->
+  <polygon points="170,230 240,270 170,310 100,270" class="diamond-node" />
+  <text x="170" y="274" class="text-node" style="font-size: 11px;">Memilih Aksi?</text>
+
+  <!-- Action: Isi Tanggal & Filter (Path A) -->
+  <rect x="20" y="360" width="130" height="50" class="rect-node" />
+  <text x="85" y="384" class="text-node">Mengubah Tanggal</text>
+  <text x="85" y="398" class="text-node">&amp; Mengeklik Filter</text>
+
+  <!-- Action: Klik Cetak (Path B) -->
+  <rect x="180" y="360" width="130" height="50" class="rect-node" />
+  <text x="245" y="384" class="text-node">Mengeklik Tombol</text>
+  <text x="245" y="398" class="text-node">Cetak Laporan</text>
+
+  <!-- End State (Path C: Selesai) -->
+  <circle cx="170" cy="650" r="10" class="end-node-outer" />
+  <circle cx="170" cy="650" r="6" class="end-node-inner" />
+
+  <!-- ================= SISTEM LANE ELEMENTS ================= -->
+  <rect x="440" y="150" width="180" height="50" class="rect-node" />
+  <text x="530" y="174" class="text-node">Tampilkan Laporan Default</text>
+  <text x="530" y="188" class="text-node">(Awal Bulan s/d Hari Ini)</text>
+
+  <!-- Action: Proses Filter (Path A) -->
+  <rect x="350" y="440" width="160" height="50" class="rect-node" />
+  <text x="430" y="464" class="text-node">Mengambil Data &amp;</text>
+  <text x="430" y="478" class="text-node">Tampilkan Laporan Terfilter</text>
+
+  <!-- Action: Jendela Cetak (Path B) -->
+  <rect x="540" y="440" width="160" height="50" class="rect-node" />
+  <text x="620" y="464" class="text-node">Membuka Jendela Cetak</text>
+  <text x="620" y="478" class="text-node">Browser (window.print())</text>
+
+  <!-- ================= EDGES & CONNECTIONS ================= -->
+  <!-- Start -> Akses -->
+  <line x1="170" y1="120" x2="170" y2="150" class="line" marker-end="url(#arrow)" />
+
+  <!-- Akses -> Tampil (Cross Lane) -->
+  <line x1="260" y1="175" x2="440" y2="175" class="line" marker-end="url(#arrow)" />
+
+  <!-- Tampil -> Aksi? (Cross Lane) -->
+  <path d="M 440 185 L 340 185 L 340 250 L 225 250" class="line" marker-end="url(#arrow)" />
+
+  <!-- Aksi? -> Filter -->
+  <path d="M 135 270 L 95 270 L 95 360" class="line" marker-end="url(#arrow)" />
+  <text x="95" y="325" class="label-edge">Filter Tanggal</text>
+
+  <!-- Filter -> Proses Filter (Cross Lane) -->
+  <path d="M 85 410 L 85 465 L 350 465" class="line" marker-end="url(#arrow)" />
+
+  <!-- Proses Filter -> Tampil (Loop back) -->
+  <path d="M 430 490 L 430 515 L 335 515 L 335 175 L 440 175" class="line" marker-end="url(#arrow)" />
+
+  <!-- Aksi? -> Cetak -->
+  <path d="M 205 270 L 245 270 L 245 360" class="line" marker-end="url(#arrow)" />
+  <text x="245" y="325" class="label-edge">Cetak Laporan</text>
+
+  <!-- Cetak -> Jendela Cetak (Cross Lane) -->
+  <path d="M 245 410 L 245 465 L 540 465" class="line" marker-end="url(#arrow)" />
+
+  <!-- Jendela Cetak -> Tampil (Loop back) -->
+  <path d="M 620 490 L 620 515 L 720 515 L 720 175 L 620 175" class="line" marker-end="url(#arrow)" />
+
+  <!-- Aksi? -> Selesai -->
+  <line x1="170" y1="310" x2="170" y2="640" class="line" marker-end="url(#arrow)" />
+  <text x="190" y="525" class="label-edge">Selesai</text>
+
+</svg>

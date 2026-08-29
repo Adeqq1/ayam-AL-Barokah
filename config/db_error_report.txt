@@ -1,0 +1,14 @@
+=== Laporan Perbaikan MariaDB ===
+Waktu Perbaikan: 2026-07-01 14:10:00 (WIB)
+Status: KONEKSI BERHASIL / SEHAT
+
+Detail Tindakan:
+1. Menemukan bahwa tabel sistem MariaDB dan file `gtid_slave_pos.ibd` di direktori `mysql` mengalami kerusakan checksum Aria/InnoDB yang menyebabkan crash total saat startup.
+2. Melakukan backup database lokal `db_pemesanan`.
+3. Mengatur ulang (restore) direktori sistem database `mysql` dari direktori `backup/` bawaan XAMPP.
+4. Memperbaiki kesalahan konfigurasi file `data/my.ini` di mana `datadir` menunjuk ke path yang salah (`c:/xampp/mysql/data` alih-alih `c:/xampp1/mysql/data`).
+5. Memulai ulang MariaDB server secara normal.
+6. Mengimpor kembali database `db_pemesanan` menggunakan file SQL dump `db_pemesanan.sql` yang ada.
+7. Memverifikasi koneksi melalui PHP dan aplikasi berjalan normal (20 menu, 1 user ditemukan).
+
+Database sudah berjalan normal dan stabil pada port 3306!

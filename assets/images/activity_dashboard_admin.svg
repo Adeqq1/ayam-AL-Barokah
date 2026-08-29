@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 730" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: 'Times New Roman', Times, serif; font-size: 16px; font-weight: bold; text-anchor: middle; fill: #000000; }
+      .lane-title { font-family: 'Times New Roman', Times, serif; font-size: 14px; font-weight: bold; text-anchor: middle; fill: #000000; }
+      .text-node { font-family: 'Times New Roman', Times, serif; font-size: 12px; fill: #000000; text-anchor: middle; }
+      .text-node-left { font-family: 'Times New Roman', Times, serif; font-size: 12px; fill: #000000; text-anchor: start; }
+      .label-edge { font-family: 'Times New Roman', Times, serif; font-size: 11px; fill: #000000; text-anchor: middle; font-style: italic; }
+      .line { fill: none; stroke: #000000; stroke-width: 1.5; }
+      .rect-node { fill: #ffffff; stroke: #000000; stroke-width: 1.5; rx: 8; ry: 8; }
+      .diamond-node { fill: #ffffff; stroke: #000000; stroke-width: 1.5; }
+      .start-node { fill: #000000; stroke: #000000; stroke-width: 1.5; }
+      .end-node-outer { fill: #ffffff; stroke: #000000; stroke-width: 1.5; }
+      .end-node-inner { fill: #000000; }
+      .border-line { stroke: #000000; stroke-width: 1.5; fill: none; }
+      .arrow { fill: #000000; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" class="arrow" />
+    </marker>
+  </defs>
+
+  <!-- Main Background -->
+  <rect x="10" y="10" width="720" height="710" fill="#ffffff" stroke="#000000" stroke-width="2" rx="10" ry="10" />
+
+  <!-- Pool Header -->
+  <rect x="10" y="10" width="720" height="40" fill="#f0f0f0" stroke="#000000" stroke-width="2" rx="10" ry="10" />
+  <rect x="10" y="30" width="720" height="20" fill="#f0f0f0" />
+  <line x1="10" y1="50" x2="730" y2="50" stroke="#000000" stroke-width="2" />
+  <text x="370" y="34" class="title">Activity Diagram: Melihat Dashboard &amp; Statistik</text>
+
+  <!-- Swimlane Divider -->
+  <line x1="330" y1="50" x2="330" y2="720" class="border-line" />
+
+  <!-- Lane Headers -->
+  <rect x="10" y="50" width="320" height="30" fill="#fafafa" stroke="#000000" stroke-width="1" />
+  <rect x="330" y="50" width="400" height="30" fill="#fafafa" stroke="#000000" stroke-width="1" />
+  <text x="170" y="70" class="lane-title">Admin (Aktor)</text>
+  <text x="530" y="70" class="lane-title">Sistem (Aplikasi)</text>
+
+  <!-- ================= ADMIN LANE ELEMENTS ================= -->
+  <!-- Start -->
+  <circle cx="170" cy="110" r="10" class="start-node" />
+  
+  <!-- Action: Akses Dashboard -->
+  <rect x="80" y="150" width="180" height="50" class="rect-node" />
+  <text x="170" y="174" class="text-node">Mengakses Halaman Dashboard</text>
+  <text x="170" y="188" class="text-node">(admin/index.php)</text>
+
+  <!-- Action: Melihat Dashboard -->
+  <rect x="80" y="540" width="180" height="50" class="rect-node" />
+  <text x="170" y="564" class="text-node">Melihat &amp; Meninjau</text>
+  <text x="170" y="578" class="text-node">Statistik &amp; Transaksi</text>
+
+  <!-- End Dashboard -->
+  <circle cx="170" cy="650" r="10" class="end-node-outer" />
+  <circle cx="170" cy="650" r="6" class="end-node-inner" />
+
+  <!-- ================= SISTEM LANE ELEMENTS ================= -->
+  <!-- Action: Cek Sesi -->
+  <rect x="440" y="150" width="180" height="50" class="rect-node" />
+  <text x="530" y="179" class="text-node">Mengecek Sesi Login Admin</text>
+
+  <!-- Decision -->
+  <polygon points="530,230 610,270 530,310 450,270" class="diamond-node" />
+  <text x="530" y="266" class="text-node" style="font-size: 11px;">Apakah</text>
+  <text x="530" y="280" class="text-node" style="font-size: 11px;">Sesi Aktif?</text>
+
+  <!-- Action: Redirect Login -->
+  <rect x="350" y="340" width="160" height="50" class="rect-node" />
+  <text x="430" y="364" class="text-node">Mengarahkan ke</text>
+  <text x="430" y="378" class="text-node">Halaman Login (login.php)</text>
+
+  <!-- End Redirect -->
+  <circle cx="430" cy="445" r="10" class="end-node-outer" />
+  <circle cx="430" cy="445" r="6" class="end-node-inner" />
+
+  <!-- Action: Query Database -->
+  <rect x="530" y="340" width="180" height="85" class="rect-node" />
+  <text x="540" y="358" class="text-node-left" style="font-weight: bold;">Query Database:</text>
+  <text x="540" y="373" class="text-node-left">- Pendapatan / Total Omzet</text>
+  <text x="540" y="388" class="text-node-left">- Jumlah Total Pesanan</text>
+  <text x="540" y="403" class="text-node-left">- Antrean Pesanan Pending</text>
+  <text x="540" y="418" class="text-node-left">- Menu &amp; 5 Transaksi Terbaru</text>
+
+  <!-- Action: Tampilkan Kartu -->
+  <rect x="530" y="450" width="180" height="50" class="rect-node" />
+  <text x="620" y="474" class="text-node">Menyajikan 4 Kartu Statistik</text>
+  <text x="620" y="488" class="text-node">Ringkasan Operasional</text>
+
+  <!-- Action: Tampilkan Tabel -->
+  <rect x="530" y="540" width="180" height="50" class="rect-node" />
+  <text x="620" y="564" class="text-node">Menampilkan Tabel 5</text>
+  <text x="620" y="578" class="text-node">Pesanan Pelanggan Terbaru</text>
+
+  <!-- ================= EDGES & CONNECTIONS ================= -->
+  <!-- Start -> Akses -->
+  <line x1="170" y1="120" x2="170" y2="150" class="line" marker-end="url(#arrow)" />
+
+  <!-- Akses -> Cek Sesi (Cross Lane) -->
+  <line x1="260" y1="175" x2="440" y2="175" class="line" marker-end="url(#arrow)" />
+
+  <!-- Cek Sesi -> Decision -->
+  <line x1="530" y1="200" x2="530" y2="230" class="line" marker-end="url(#arrow)" />
+
+  <!-- Decision -> Redirect [Tidak] -->
+  <path d="M 450 270 L 430 270 L 430 340" class="line" marker-end="url(#arrow)" />
+  <text x="415" y="260" class="label-edge">Tidak</text>
+
+  <!-- Redirect -> End Login -->
+  <line x1="430" y1="390" x2="430" y2="435" class="line" marker-end="url(#arrow)" />
+
+  <!-- Decision -> Query [Ya] -->
+  <path d="M 570 270 L 620 270 L 620 340" class="line" marker-end="url(#arrow)" />
+  <text x="600" y="260" class="label-edge">Ya</text>
+
+  <!-- Query -> Tampil Kartu -->
+  <line x1="620" y1="425" x2="620" y2="450" class="line" marker-end="url(#arrow)" />
+
+  <!-- Tampil Kartu -> Tampil Tabel -->
+  <line x1="620" y1="500" x2="620" y2="540" class="line" marker-end="url(#arrow)" />
+
+  <!-- Tampil Tabel -> Melihat (Cross Lane) -->
+  <line x1="530" y1="565" x2="260" y2="565" class="line" marker-end="url(#arrow)" />
+
+  <!-- Melihat -> End Dashboard -->
+  <line x1="170" y1="590" x2="170" y2="640" class="line" marker-end="url(#arrow)" />
+
+</svg>

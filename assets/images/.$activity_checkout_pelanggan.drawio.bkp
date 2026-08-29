@@ -1,0 +1,203 @@
+<mxfile host="Electron" agent="5.0 (Windows)">
+  <diagram id="activity-pelanggan-checkout" name="Activity Diagram Checkout Pelanggan">
+    <mxGraphModel dx="1046" dy="845" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="950" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Swimlane Pool -->
+        <mxCell id="swimlane_pool" value="Activity Diagram: Melakukan Checkout &amp;amp; Buat Pesanan (Pelanggan)" style="shape=swimlane;whiteSpace=wrap;html=1;startSize=40;swimlaneFillColor=#FFFFFF;fontStyle=1;align=center;fontSize=14;strokeWidth=2;rounded=1;arcSize=10;fontFamily=Times New Roman;strokeColor=#000000;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="150" y="40" width="700" height="860" as="geometry" />
+        </mxCell>
+        
+        <!-- Swimlane: Pelanggan -->
+        <mxCell id="swimlane_pelanggan" value="Pelanggan" style="shape=swimlane;whiteSpace=wrap;html=1;startSize=30;align=center;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontStyle=1;fontSize=12;fontColor=#000000;" vertex="1" parent="swimlane_pool">
+          <mxGeometry x="0" y="40" width="320" height="820" as="geometry" />
+        </mxCell>
+        
+        <!-- Swimlane: Sistem -->
+        <mxCell id="swimlane_sistem" value="Sistem" style="shape=swimlane;whiteSpace=wrap;html=1;startSize=30;align=center;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontStyle=1;fontSize=12;fontColor=#000000;" vertex="1" parent="swimlane_pool">
+          <mxGeometry x="320" y="40" width="380" height="820" as="geometry" />
+        </mxCell>
+        
+        <!-- Start State -->
+        <mxCell id="start" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;aspect=fixed;" vertex="1" parent="swimlane_pelanggan">
+          <mxGeometry x="150" y="30" width="20" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Action: Akses Keranjang -->
+        <mxCell id="act_akses" value="Mengakses Halaman Keranjang &amp;amp; Mengeklik Lanjut ke Checkout" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;fontColor=#000000;align=center;" vertex="1" parent="swimlane_pelanggan">
+          <mxGeometry x="70" y="80" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Action: Tampilkan Checkout -->
+        <mxCell id="act_tampil" value="Menampilkan Halaman Checkout &amp;amp; Formulir Pemesanan" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;fontColor=#000000;align=center;" vertex="1" parent="swimlane_sistem">
+          <mxGeometry x="100" y="80" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Action: Isi Form -->
+        <mxCell id="act_isi" value="Mengisi Formulir Data Pemesanan (Nama, No Telepon, &amp;amp; Tipe Pesanan)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;fontColor=#000000;align=center;" vertex="1" parent="swimlane_pelanggan">
+          <mxGeometry x="70" y="160" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Decision: Delivery? -->
+        <mxCell id="dec_delivery" value="Metode Delivery?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=11;fontColor=#000000;align=center;" vertex="1" parent="swimlane_sistem">
+          <mxGeometry x="120" y="220" width="140" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Action: Alamat Input -->
+        <mxCell id="act_alamat_input" value="Menampilkan Kolom Input Alamat" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;fontColor=#000000;align=center;" vertex="1" parent="swimlane_sistem">
+          <mxGeometry x="25" y="320" width="150" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Action: Alamat Isi -->
+        <mxCell id="act_alamat_isi" value="Melengkapi Alamat Tujuan Pengiriman" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;fontColor=#000000;align=center;" vertex="1" parent="swimlane_pelanggan">
+          <mxGeometry x="70" y="320" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Action: Ongkir -->
+        <mxCell id="act_ongkir" value="Menambahkan Ongkos Kirim Rp 10.000 ke Total Harga" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=11;fontColor=#000000;align=center;" vertex="1" parent="swimlane_sistem">
+          <mxGeometry x="205" y="320" width="150" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Action: Klik Pesan -->
+        <mxCell id="act_klik" value="Mengeklik Tombol Buat Pesanan Sekarang" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;fontColor=#000000;align=center;" vertex="1" parent="swimlane_pelanggan">
+          <mxGeometry x="70" y="410" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Decision: Input Lengkap? -->
+        <mxCell id="dec_lengkap" value="Apakah Input Lengkap?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=10;fontColor=#000000;align=center;" vertex="1" parent="swimlane_sistem">
+          <mxGeometry x="120" y="480" width="140" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Action: DB Query -->
+        <mxCell id="act_db" value="Memulai DB Transaction &amp;amp; Menyimpan Data ke Tabel pesanan &amp;amp; detail_pesanan" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;fontColor=#000000;align=center;" vertex="1" parent="swimlane_sistem">
+          <mxGeometry x="80" y="580" width="220" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Decision: DB OK? -->
+        <mxCell id="dec_db" value="DB Query Sukses?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=11;fontColor=#000000;align=center;" vertex="1" parent="swimlane_sistem">
+          <mxGeometry x="120" y="650" width="140" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Action: Commit & Clear Sesi -->
+        <mxCell id="act_commit" value="Commit Transaksi Database &amp;amp; Mengosongkan Sesi Keranjang" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;fontColor=#000000;align=center;" vertex="1" parent="swimlane_sistem">
+          <mxGeometry x="100" y="750" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Action: Redirect -->
+        <mxCell id="act_redirect" value="Redirect ke Halaman Konfirmasi Pembayaran (konfirmasi-bayar.php)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=11;fontColor=#000000;align=center;" vertex="1" parent="swimlane_pelanggan">
+          <mxGeometry x="70" y="750" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- End State -->
+        <mxCell id="end" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;strokeWidth=1.5;" vertex="1" parent="swimlane_pelanggan">
+          <mxGeometry x="150" y="820" width="20" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Edges -->
+        <!-- Start -> Akses -->
+        <mxCell id="edge_start_akses" edge="1" parent="1" source="start" target="act_akses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Akses -> Tampil -->
+        <mxCell id="edge_akses_tampil" edge="1" parent="1" source="act_akses" target="act_tampil" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Tampil -> Isi Form -->
+        <mxCell id="edge_tampil_isi" edge="1" parent="1" source="act_tampil" target="act_isi" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Isi Form -> Delivery? -->
+        <mxCell id="edge_isi_del" edge="1" parent="1" source="act_isi" target="dec_delivery" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Delivery? -> Alamat Input (Ya) -->
+        <mxCell id="edge_del_ya" edge="1" parent="1" source="dec_delivery" target="act_alamat_input" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;exitX=0;exitY=0.5;entryX=0.5;entryY=0;" value="Ya">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-10" y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Alamat Input -> Alamat Isi -->
+        <mxCell id="edge_input_isi" edge="1" parent="1" source="act_alamat_input" target="act_alamat_isi" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Alamat Isi -> Ongkir -->
+        <mxCell id="edge_isi_ongkir" edge="1" parent="1" source="act_alamat_isi" target="act_ongkir" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Ongkir -> Klik Pesan -->
+        <mxCell id="edge_ongkir_klik" edge="1" parent="1" source="act_ongkir" target="act_klik" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;exitX=0.5;exitY=1;entryX=1;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry">
+            <Array points="695,445;260,445" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Delivery? -> Klik Pesan (Tidak) -->
+        <mxCell id="edge_del_tidak" edge="1" parent="1" source="dec_delivery" target="act_klik" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" value="Tidak">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="10" y="-15" as="offset" />
+            <Array points="760,300;760,445;260,445" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Klik Pesan -> Lengkap? -->
+        <mxCell id="edge_klik_lengkap" edge="1" parent="1" source="act_klik" target="dec_lengkap" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Lengkap? -> Isi Form (Tidak - Loop back) -->
+        <mxCell id="edge_lengkap_tidak" edge="1" parent="1" source="dec_lengkap" target="act_isi" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" value="Tidak (Notifikasi Error)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-10" y="-15" as="offset" />
+            <Array points="420,520;120,520;120,185" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Lengkap? -> DB Query (Ya) -->
+        <mxCell id="edge_lengkap_ya" edge="1" parent="1" source="dec_lengkap" target="act_db" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" value="Ya">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="10" y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- DB Query -> DB OK? -->
+        <mxCell id="edge_db_ok" edge="1" parent="1" source="act_db" target="dec_db" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- DB OK? -> Isi Form (Tidak - Rollback &amp; Loop) -->
+        <mxCell id="edge_db_tidak" edge="1" parent="1" source="dec_db" target="act_isi" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" value="Tidak (Rollback &amp;amp; Notif)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-10" y="-15" as="offset" />
+            <Array points="420,690;120,690;120,185" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- DB OK? -> Commit (Ya) -->
+        <mxCell id="edge_db_ya" edge="1" parent="1" source="dec_db" target="act_commit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" value="Ya">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="10" y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Commit -> Redirect (Cross Lane) -->
+        <mxCell id="edge_commit_redir" edge="1" parent="1" source="act_commit" target="act_redirect" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Redirect -> End -->
+        <mxCell id="edge_redir_end" edge="1" parent="1" source="act_redirect" target="end" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

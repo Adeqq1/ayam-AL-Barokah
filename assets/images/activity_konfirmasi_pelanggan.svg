@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 1060" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: 'Times New Roman', Times, serif; font-size: 16px; font-weight: bold; text-anchor: middle; fill: #000000; }
+      .lane-title { font-family: 'Times New Roman', Times, serif; font-size: 14px; font-weight: bold; text-anchor: middle; fill: #000000; }
+      .text-node { font-family: 'Times New Roman', Times, serif; font-size: 12px; fill: #000000; text-anchor: middle; }
+      .label-edge { font-family: 'Times New Roman', Times, serif; font-size: 11px; fill: #000000; text-anchor: middle; font-style: italic; }
+      .line { fill: none; stroke: #000000; stroke-width: 1.5; }
+      .rect-node { fill: #ffffff; stroke: #000000; stroke-width: 1.5; rx: 8; ry: 8; }
+      .diamond-node { fill: #ffffff; stroke: #000000; stroke-width: 1.5; }
+      .start-node { fill: #000000; stroke: #000000; stroke-width: 1.5; }
+      .end-node-outer { fill: #ffffff; stroke: #000000; stroke-width: 1.5; }
+      .end-node-inner { fill: #000000; }
+      .border-line { stroke: #000000; stroke-width: 1.5; fill: none; }
+      .arrow { fill: #000000; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" class="arrow" />
+    </marker>
+  </defs>
+
+  <!-- Main Background -->
+  <rect x="10" y="10" width="720" height="1040" fill="#ffffff" stroke="#000000" stroke-width="2" rx="10" ry="10" />
+
+  <!-- Pool Header -->
+  <rect x="10" y="10" width="720" height="40" fill="#f0f0f0" stroke="#000000" stroke-width="2" rx="10" ry="10" />
+  <rect x="10" y="30" width="720" height="20" fill="#f0f0f0" />
+  <line x1="10" y1="50" x2="730" y2="50" stroke="#000000" stroke-width="2" />
+  <text x="370" y="34" class="title">Activity Diagram: Mengunggah Bukti Pembayaran (Konfirmasi Pembayaran)</text>
+
+  <!-- Swimlane Divider -->
+  <line x1="330" y1="50" x2="330" y2="1040" class="border-line" />
+
+  <!-- Lane Headers -->
+  <rect x="10" y="50" width="320" height="30" fill="#fafafa" stroke="#000000" stroke-width="1" />
+  <rect x="330" y="50" width="400" height="30" fill="#fafafa" stroke="#000000" stroke-width="1" />
+  <text x="170" y="70" class="lane-title">Pelanggan (Aktor)</text>
+  <text x="530" y="70" class="lane-title">Sistem (Aplikasi)</text>
+
+  <!-- ================= PELANGGAN LANE ELEMENTS ================= -->
+  <circle cx="170" cy="100" r="10" class="start-node" />
+  
+  <rect x="20" y="140" width="300" height="50" class="rect-node" />
+  <text x="170" y="164" class="text-node">Mengakses Halaman Konfirmasi Pembayaran</text>
+  <text x="170" y="178" class="text-node" style="font-size: 8.5px;">(fitur_pemesanan/konfirmasi-bayar.php?kode=ALB-YYMMDD-HHMMSS)</text>
+
+  <rect x="80" y="490" width="180" height="50" class="rect-node" />
+  <text x="170" y="514" class="text-node">Melakukan Transfer Dana secara</text>
+  <text x="170" y="528" class="text-node">Eksternal (ATM / M-Banking / Teller)</text>
+
+  <rect x="80" y="570" width="180" height="50" class="rect-node" />
+  <text x="170" y="599" class="text-node">Memilih Berkas Gambar Bukti Bayar</text>
+
+  <rect x="80" y="650" width="180" height="50" class="rect-node" />
+  <text x="170" y="679" class="text-node">Mengeklik Tombol Kirim Bukti Transfer</text>
+
+  <rect x="80" y="900" width="180" height="50" class="rect-node" />
+  <text x="170" y="924" class="text-node">Memuat Halaman &amp; Melihat</text>
+  <text x="170" y="938" class="text-node">Notifikasi Sukses Unggah Bukti</text>
+
+  <circle cx="170" cy="995" r="10" class="end-node-outer" />
+  <circle cx="170" cy="995" r="6" class="end-node-inner" />
+
+  <!-- ================= SISTEM LANE ELEMENTS ================= -->
+  <rect x="440" y="140" width="180" height="50" class="rect-node" />
+  <text x="530" y="164" class="text-node">Membaca Parameter Kode</text>
+  <text x="530" y="178" class="text-node">Pesanan dari URL</text>
+
+  <rect x="440" y="220" width="180" height="50" class="rect-node" />
+  <text x="530" y="249" class="text-node">Query Database Tabel pesanan</text>
+
+  <!-- Decision: Apakah Ditemukan? -->
+  <polygon points="530,300 600,340 530,380 460,340" class="diamond-node" />
+  <text x="530" y="344" class="text-node" style="font-size: 11px;">Apakah Ditemukan?</text>
+
+  <!-- Action: Error -->
+  <rect x="350" y="410" width="160" height="50" class="rect-node" />
+  <text x="430" y="434" class="text-node">Tampilkan Pesan Kesalahan:</text>
+  <text x="430" y="448" class="text-node">Pesanan Tidak Ditemukan</text>
+
+  <!-- End State: Error -->
+  <circle cx="430" cy="500" r="10" class="end-node-outer" />
+  <circle cx="430" cy="500" r="6" class="end-node-inner" />
+
+  <!-- Action: Menampilkan Detail -->
+  <rect x="540" y="410" width="180" height="50" class="rect-node" />
+  <text x="630" y="434" class="text-node">Menampilkan Detail Pemesanan &amp;</text>
+  <text x="630" y="448" class="text-node">Nomor Rekening Tujuan Transfer</text>
+
+  <!-- Decision: File Valid? -->
+  <polygon points="530,720 600,760 530,800 460,760" class="diamond-node" />
+  <text x="530" y="764" class="text-node" style="font-size: 11px;">Apakah File Valid?</text>
+
+  <!-- Action: Simpan Gambar -->
+  <rect x="440" y="830" width="180" height="50" class="rect-node" />
+  <text x="530" y="859" class="text-node">Menyimpan Gambar ke folder bukti_bayar/</text>
+
+  <!-- Action: Update DB -->
+  <rect x="440" y="900" width="180" height="50" class="rect-node" />
+  <text x="530" y="924" class="text-node">Update Pembayaran di DB:</text>
+  <text x="530" y="938" class="text-node">'menunggu_konfirmasi'</text>
+
+  <!-- ================= EDGES & CONNECTIONS ================= -->
+  <!-- Start -> Akses -->
+  <line x1="170" y1="110" x2="170" y2="140" class="line" marker-end="url(#arrow)" />
+
+  <!-- Akses -> Baca Parameter (Cross Lane) -->
+  <line x1="320" y1="165" x2="440" y2="165" class="line" marker-end="url(#arrow)" />
+
+  <!-- Baca Parameter -> Query -->
+  <line x1="530" y1="190" x2="530" y2="220" class="line" marker-end="url(#arrow)" />
+
+  <!-- Query -> Found? -->
+  <line x1="530" y1="270" x2="530" y2="300" class="line" marker-end="url(#arrow)" />
+
+  <!-- Found? -> Error [Tidak] -->
+  <path d="M 460 340 L 430 340 L 430 410" class="line" marker-end="url(#arrow)" />
+  <text x="445" y="335" class="label-edge">Tidak</text>
+
+  <!-- Error -> End Error -->
+  <line x1="430" y1="460" x2="430" y2="490" class="line" marker-end="url(#arrow)" />
+
+  <!-- Found? -> Tampil [Ya] -->
+  <path d="M 600 340 L 630 340 L 630 410" class="line" marker-end="url(#arrow)" />
+  <text x="615" y="335" class="label-edge">Ya</text>
+
+  <!-- Tampil -> Transfer (Cross Lane) -->
+  <path d="M 630 460 L 630 475 L 170 475 L 170 490" class="line" marker-end="url(#arrow)" />
+
+  <!-- Transfer -> Pilih File -->
+  <line x1="170" y1="540" x2="170" y2="570" class="line" marker-end="url(#arrow)" />
+
+  <!-- Pilih -> Klik -->
+  <line x1="170" y1="620" x2="170" y2="650" class="line" marker-end="url(#arrow)" />
+
+  <!-- Klik -> Valid? (Cross Lane) -->
+  <path d="M 260 675 L 530 675 L 530 720" class="line" marker-end="url(#arrow)" />
+
+  <!-- Valid? -> Pilih File [Tidak] (Cross Lane Loop) -->
+  <path d="M 460 760 L 320 760 L 320 595 L 260 595" class="line" marker-end="url(#arrow)" />
+  <text x="365" y="745" class="label-edge">Tidak (Error)</text>
+
+  <!-- Valid? -> Simpan [Ya] -->
+  <line x1="530" y1="800" x2="530" y2="830" class="line" marker-end="url(#arrow)" />
+  <text x="545" y="815" class="label-edge">Ya</text>
+
+  <!-- Simpan -> Update -->
+  <line x1="530" y1="880" x2="530" y2="900" class="line" marker-end="url(#arrow)" />
+
+  <!-- Update -> Notif (Cross Lane) -->
+  <path d="M 530 950 L 530 965 L 300 965 L 300 925 L 260 925" class="line" marker-end="url(#arrow)" />
+
+  <!-- Notif -> End -->
+  <line x1="170" y1="950" x2="170" y2="985" class="line" marker-end="url(#arrow)" />
+
+</svg>

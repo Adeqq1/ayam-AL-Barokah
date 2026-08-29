@@ -1,0 +1,67 @@
+<mxfile host="Electron" agent="5.0 (Windows)">
+  <diagram id="konfirmasi-bayar-bw" name="Rancangan Antarmuka Konfirmasi Pembayaran">
+    <mxGraphModel dx="1046" dy="845" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="navbar_bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontFamily=Times New Roman;" vertex="1">
+          <mxGeometry height="60" width="1000" x="50" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="brand_name" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontFamily=Times New Roman;" value="&lt;b&gt;Ayam Penyet Al-Barokah&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="250" x="110" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_home" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontFamily=Times New Roman;" value="Beranda" vertex="1">
+          <mxGeometry height="30" width="70" x="650" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_menu" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontFamily=Times New Roman;" value="Menu" vertex="1">
+          <mxGeometry height="30" width="60" x="730" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_cart" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;align=center;verticalAlign=middle;fontSize=13;fontFamily=Times New Roman;" value="&lt;b&gt;Keranjang (2)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="32" width="110" x="800" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_login" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontFamily=Times New Roman;" value="Login" vertex="1">
+          <mxGeometry height="30" width="60" x="930" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="confirm_card_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;arcSize=2;fontFamily=Times New Roman;" vertex="1">
+          <mxGeometry height="510" width="500" x="300" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="confirm_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontFamily=Times New Roman;" value="Konfirmasi Pembayaran &amp; Status Pesanan" vertex="1">
+          <mxGeometry height="40" width="440" x="330" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_kode" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#555555;fontFamily=Times New Roman;" value="Kode Pesanan" vertex="1">
+          <mxGeometry height="20" width="150" x="330" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="val_kode" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontFamily=Times New Roman;" value="ALB-260708-01" vertex="1">
+          <mxGeometry height="30" width="170" x="330" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="badge_status" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontFamily=Times New Roman;" value="Menunggu Pembayaran" vertex="1">
+          <mxGeometry height="26" width="140" x="510" y="277" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_rekening" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontFamily=Times New Roman;" value="Rekening Bank Transfer:" vertex="1">
+          <mxGeometry height="20" width="300" x="330" y="325" as="geometry" />
+        </mxCell>
+        <mxCell id="bank_bca" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontFamily=Times New Roman;" value="• BCA: 1234567890 a.n. Ayam Penyet Al-Barokah" vertex="1">
+          <mxGeometry height="20" width="440" x="330" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="bank_mandiri" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontFamily=Times New Roman;" value="• Mandiri: 9876543210 a.n. Ayam Penyet Al-Barokah" vertex="1">
+          <mxGeometry height="20" width="440" x="330" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="bank_bni" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontFamily=Times New Roman;" value="• BNI: 1122334455 a.n. Ayam Penyet Al-Barokah" vertex="1">
+          <mxGeometry height="20" width="440" x="330" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_total" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#555555;fontFamily=Times New Roman;" value="Total yang Harus Dibayar" vertex="1">
+          <mxGeometry height="20" width="200" x="330" y="425" as="geometry" />
+        </mxCell>
+        <mxCell id="val_total" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontFamily=Times New Roman;" value="Rp 61.000" vertex="1">
+          <mxGeometry height="35" width="200" x="330" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="upload_area" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;strokeWidth=1;dashed=1;align=center;verticalAlign=middle;fontSize=12;fontFamily=Times New Roman;fontColor=#444444;" value="Unggah Bukti Pembayaran (JPG/PNG)" vertex="1">
+          <mxGeometry height="60" width="440" x="330" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_upload" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontFamily=Times New Roman;" value="Unggah Bukti" vertex="1">
+          <mxGeometry height="45" width="440" x="330" y="580" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

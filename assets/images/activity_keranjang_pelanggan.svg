@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 820" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: 'Times New Roman', Times, serif; font-size: 16px; font-weight: bold; text-anchor: middle; fill: #000000; }
+      .lane-title { font-family: 'Times New Roman', Times, serif; font-size: 14px; font-weight: bold; text-anchor: middle; fill: #000000; }
+      .text-node { font-family: 'Times New Roman', Times, serif; font-size: 12px; fill: #000000; text-anchor: middle; }
+      .label-edge { font-family: 'Times New Roman', Times, serif; font-size: 11px; fill: #000000; text-anchor: middle; font-style: italic; }
+      .line { fill: none; stroke: #000000; stroke-width: 1.5; }
+      .rect-node { fill: #ffffff; stroke: #000000; stroke-width: 1.5; rx: 8; ry: 8; }
+      .diamond-node { fill: #ffffff; stroke: #000000; stroke-width: 1.5; }
+      .start-node { fill: #000000; stroke: #000000; stroke-width: 1.5; }
+      .end-node-outer { fill: #ffffff; stroke: #000000; stroke-width: 1.5; }
+      .end-node-inner { fill: #000000; }
+      .border-line { stroke: #000000; stroke-width: 1.5; fill: none; }
+      .arrow { fill: #000000; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" class="arrow" />
+    </marker>
+  </defs>
+
+  <!-- Main Background -->
+  <rect x="10" y="10" width="720" height="800" fill="#ffffff" stroke="#000000" stroke-width="2" rx="10" ry="10" />
+
+  <!-- Pool Header -->
+  <rect x="10" y="10" width="720" height="40" fill="#f0f0f0" stroke="#000000" stroke-width="2" rx="10" ry="10" />
+  <rect x="10" y="30" width="720" height="20" fill="#f0f0f0" />
+  <line x1="10" y1="50" x2="730" y2="50" stroke="#000000" stroke-width="2" />
+  <text x="370" y="34" class="title">Activity Diagram: Tambah ke Keranjang (Pelanggan)</text>
+
+  <!-- Swimlane Divider -->
+  <line x1="330" y1="50" x2="330" y2="800" class="border-line" />
+
+  <!-- Lane Headers -->
+  <rect x="10" y="50" width="320" height="30" fill="#fafafa" stroke="#000000" stroke-width="1" />
+  <rect x="330" y="50" width="400" height="30" fill="#fafafa" stroke="#000000" stroke-width="1" />
+  <text x="170" y="70" class="lane-title">Pelanggan (Aktor)</text>
+  <text x="530" y="70" class="lane-title">Sistem (Aplikasi)</text>
+
+  <!-- ================= PELANGGAN LANE ELEMENTS ================= -->
+  <circle cx="170" cy="110" r="10" class="start-node" />
+  
+  <rect x="80" y="150" width="180" height="50" class="rect-node" />
+  <text x="170" y="179" class="text-node">Mengeklik Tombol + Tambah ke Keranjang</text>
+
+  <rect x="80" y="690" width="180" height="50" class="rect-node" />
+  <text x="170" y="714" class="text-node">Menampilkan Notifikasi Sukses &amp;</text>
+  <text x="170" y="728" class="text-node">Memperbarui Jumlah Keranjang</text>
+
+  <circle cx="170" cy="770" r="10" class="end-node-outer" />
+  <circle cx="170" cy="770" r="6" class="end-node-inner" />
+
+  <!-- ================= SISTEM LANE ELEMENTS ================= -->
+  <rect x="440" y="150" width="180" height="50" class="rect-node" />
+  <text x="530" y="174" class="text-node">Mengirim Permintaan GET</text>
+  <text x="530" y="188" class="text-node">dengan ID Menu</text>
+
+  <rect x="440" y="230" width="180" height="50" class="rect-node" />
+  <text x="530" y="254" class="text-node">Memvalidasi Keberadaan &amp;</text>
+  <text x="530" y="268" class="text-node">Ketersediaan Menu di Database</text>
+
+  <!-- Decision: Tersedia? -->
+  <polygon points="530,310 600,350 530,390 460,350" class="diamond-node" />
+  <text x="530" y="354" class="text-node" style="font-size: 11px;">Apakah Tersedia?</text>
+
+  <!-- Action: Error (Tidak) -->
+  <rect x="350" y="420" width="160" height="50" class="rect-node" />
+  <text x="430" y="444" class="text-node">Menampilkan Pesan Menu Habis</text>
+  <text x="430" y="458" class="text-node">/ Tidak Valid</text>
+
+  <!-- End State: Error -->
+  <circle cx="430" cy="510" r="10" class="end-node-outer" />
+  <circle cx="430" cy="510" r="6" class="end-node-inner" />
+
+  <!-- Action: Cek Session (Ya) -->
+  <rect x="530" y="420" width="180" height="50" class="rect-node" />
+  <text x="620" y="449" class="text-node">Memeriksa Sesi Keranjang</text>
+
+  <!-- Decision: Sudah Ada? -->
+  <polygon points="620,490 690,530 620,570 550,530" class="diamond-node" />
+  <text x="620" y="534" class="text-node" style="font-size: 9px;">Apakah Sudah Ada?</text>
+
+  <!-- Action: Inc porsi (Ya) -->
+  <rect x="525" y="600" width="90" height="50" class="rect-node" />
+  <text x="570" y="624" class="text-node">Menambah</text>
+  <text x="570" y="638" class="text-node">Porsi (+1)</text>
+
+  <!-- Action: Set 1 (Tidak) -->
+  <rect x="625" y="600" width="90" height="50" class="rect-node" />
+  <text x="670" y="624" class="text-node">Set Jumlah</text>
+  <text x="670" y="638" class="text-node">Item = 1</text>
+
+  <!-- Action: Redirect -->
+  <rect x="440" y="690" width="180" height="50" class="rect-node" />
+  <text x="530" y="714" class="text-node">Redirect ke index.php</text>
+  <text x="530" y="728" class="text-node">dengan Status Sukses</text>
+
+  <!-- ================= EDGES & CONNECTIONS ================= -->
+  <!-- Start -> Pilih -->
+  <line x1="170" y1="120" x2="170" y2="150" class="line" marker-end="url(#arrow)" />
+
+  <!-- Pilih -> Kirim (Cross Lane) -->
+  <line x1="260" y1="175" x2="440" y2="175" class="line" marker-end="url(#arrow)" />
+
+  <!-- Kirim -> Validasi -->
+  <line x1="530" y1="200" x2="530" y2="230" class="line" marker-end="url(#arrow)" />
+
+  <!-- Validasi -> Decision -->
+  <line x1="530" y1="280" x2="530" y2="310" class="line" marker-end="url(#arrow)" />
+
+  <!-- Decision -> Error [Tidak] -->
+  <path d="M 460 350 L 430 350 L 430 420" class="line" marker-end="url(#arrow)" />
+  <text x="445" y="340" class="label-edge">Tidak</text>
+
+  <!-- Error -> End Error -->
+  <line x1="430" y1="470" x2="430" y2="500" class="line" marker-end="url(#arrow)" />
+
+  <!-- Decision -> Cek Session [Ya] -->
+  <path d="M 600 350 L 620 350 L 620 420" class="line" marker-end="url(#arrow)" />
+  <text x="605" y="340" class="label-edge">Ya</text>
+
+  <!-- Cek Session -> Sudah Ada? -->
+  <line x1="620" y1="470" x2="620" y2="490" class="line" marker-end="url(#arrow)" />
+
+  <!-- Sudah Ada? -> Inc [Ya] -->
+  <path d="M 550 530 L 570 530 L 570 600" class="line" marker-end="url(#arrow)" />
+  <text x="560" y="520" class="label-edge">Ya</text>
+
+  <!-- Sudah Ada? -> Set 1 [Tidak] -->
+  <path d="M 690 530 L 670 530 L 670 600" class="line" marker-end="url(#arrow)" />
+  <text x="680" y="520" class="label-edge">Tidak</text>
+
+  <!-- Inc -> Redirect -->
+  <path d="M 570 650 L 570 665 L 530 665 L 530 690" class="line" marker-end="url(#arrow)" />
+
+  <!-- Set 1 -> Redirect -->
+  <path d="M 670 650 L 670 665 L 530 665 L 530 690" class="line" marker-end="url(#arrow)" />
+
+  <!-- Redirect -> Notif (Cross Lane) -->
+  <line x1="440" y1="715" x2="260" y2="715" class="line" marker-end="url(#arrow)" />
+
+  <!-- Notif -> End -->
+  <line x1="170" y1="740" x2="170" y2="760" class="line" marker-end="url(#arrow)" />
+
+</svg>

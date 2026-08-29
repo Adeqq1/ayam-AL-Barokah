@@ -1,0 +1,111 @@
+<mxfile host="Electron" agent="5.0 (Windows)">
+  <diagram id="activity-admin-pesanan-swimlane-simple" name="Activity Diagram Kelola Pesanan Swimlane Simple">
+    <mxGraphModel dx="591" dy="477" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="swimlane_pool" parent="1" style="shape=swimlane;whiteSpace=wrap;html=1;startSize=40;swimlaneFillColor=#FFFFFF;fontStyle=1;align=center;fontSize=14;strokeWidth=2;rounded=1;arcSize=10;fontFamily=Times New Roman;strokeColor=#000000;fontColor=#000000;" value="Activity Diagram: Mengelola Pesanan &amp; Verifikasi Pembayaran" vertex="1">
+          <mxGeometry height="600" width="700" x="140" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="swimlane_admin" parent="swimlane_pool" style="shape=swimlane;whiteSpace=wrap;html=1;startSize=30;align=center;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontStyle=1;fontSize=12;fontColor=#000000;" value="Admin" vertex="1">
+          <mxGeometry height="560" width="320" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="swimlane_admin" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;aspect=fixed;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="150" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="act_akses" parent="swimlane_admin" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;fontColor=#000000;align=center;" value="Mengakses Halaman Kelola Pesanan (kelola_pesanan.php)" vertex="1">
+          <mxGeometry height="50" width="180" x="70" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="act_pilih" parent="swimlane_admin" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;fontColor=#000000;align=center;" value="Memilih Pesanan &amp; Memeriksa Bukti Transfer Pelanggan" vertex="1">
+          <mxGeometry height="50" width="180" x="70" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="dec_valid" parent="swimlane_admin" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=11;fontColor=#000000;align=center;" value="Apakah Bukti Valid?" vertex="1">
+          <mxGeometry height="80" width="140" x="440" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="act_set_proses" parent="swimlane_admin" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=11;fontColor=#000000;align=center;" value="Mengubah Status Pembayaran: Lunas&#xa;Status Pesanan: Diproses" vertex="1">
+          <mxGeometry height="50" width="140" x="360" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="act_set_batal" parent="swimlane_admin" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=11;fontColor=#000000;align=center;" value="Mengubah Status Pembayaran: Ditolak&#xa;Status Pesanan: Dibatalkan" vertex="1">
+          <mxGeometry height="50" width="140" x="520" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="act_simpan" parent="swimlane_admin" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;fontColor=#000000;align=center;" value="Menekan Tombol Simpan Status Baru" vertex="1">
+          <mxGeometry height="50" width="180" x="70" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_batal_simpan" edge="1" parent="swimlane_admin" source="act_set_batal" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;" target="act_simpan">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="590" y="360" />
+              <mxPoint x="310" y="360" />
+              <mxPoint x="310" y="325" />
+            </Array>
+            <mxPoint x="250" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="swimlane_sistem" parent="swimlane_pool" style="shape=swimlane;whiteSpace=wrap;html=1;startSize=30;align=center;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontStyle=1;fontSize=12;fontColor=#000000;" value="Sistem" vertex="1">
+          <mxGeometry height="560" width="380" x="320" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="act_tampil" parent="swimlane_sistem" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;fontColor=#000000;align=center;" value="Menampilkan Daftar Pesanan &amp; Rincian Transaksi" vertex="1">
+          <mxGeometry height="50" width="180" x="100" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="act_update" parent="swimlane_sistem" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;fontColor=#000000;align=center;" value="Memperbarui Data Pesanan di Database &amp; Menampilkan Pesan Sukses" vertex="1">
+          <mxGeometry height="50" width="180" x="100" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="end" parent="swimlane_sistem" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;strokeWidth=1.5;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="180" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_start_akses" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;" target="act_akses">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_akses_tampil" edge="1" parent="1" source="act_akses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;" target="act_tampil">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_tampil_pilih" edge="1" parent="1" source="act_tampil" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;" target="act_pilih">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="240" />
+              <mxPoint x="300" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_pilih_valid" edge="1" parent="1" source="act_pilih" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="dec_valid">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="285" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_valid_ya" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;exitX=0;exitY=0.5;" value="Ya">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-10" y="-15" as="offset" />
+            <Array as="points">
+              <mxPoint x="559" y="340" />
+              <mxPoint x="559" y="371" />
+              <mxPoint x="560" y="400" />
+            </Array>
+            <mxPoint x="579" y="340" as="sourcePoint" />
+            <mxPoint x="560" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_valid_tidak" edge="1" parent="1" source="dec_valid" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;fontFamily=Times New Roman;fontSize=12;exitX=1;exitY=0.5;" value="Tidak">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="10" y="-15" as="offset" />
+            <mxPoint x="740" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_proses_simpan" edge="1" parent="1" source="act_set_proses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;" target="act_simpan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_simpan_update" edge="1" parent="1" source="act_simpan" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;" target="act_update">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="555" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_update_end" edge="1" parent="1" source="act_update" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

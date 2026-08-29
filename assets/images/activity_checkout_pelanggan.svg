@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 920" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: 'Times New Roman', Times, serif; font-size: 16px; font-weight: bold; text-anchor: middle; fill: #000000; }
+      .lane-title { font-family: 'Times New Roman', Times, serif; font-size: 14px; font-weight: bold; text-anchor: middle; fill: #000000; }
+      .text-node { font-family: 'Times New Roman', Times, serif; font-size: 12px; fill: #000000; text-anchor: middle; }
+      .label-edge { font-family: 'Times New Roman', Times, serif; font-size: 11px; fill: #000000; text-anchor: middle; font-style: italic; }
+      .line { fill: none; stroke: #000000; stroke-width: 1.5; }
+      .rect-node { fill: #ffffff; stroke: #000000; stroke-width: 1.5; rx: 8; ry: 8; }
+      .diamond-node { fill: #ffffff; stroke: #000000; stroke-width: 1.5; }
+      .start-node { fill: #000000; stroke: #000000; stroke-width: 1.5; }
+      .end-node-outer { fill: #ffffff; stroke: #000000; stroke-width: 1.5; }
+      .end-node-inner { fill: #000000; }
+      .border-line { stroke: #000000; stroke-width: 1.5; fill: none; }
+      .arrow { fill: #000000; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" class="arrow" />
+    </marker>
+  </defs>
+
+  <!-- Main Background -->
+  <rect x="10" y="10" width="720" height="900" fill="#ffffff" stroke="#000000" stroke-width="2" rx="10" ry="10" />
+
+  <!-- Pool Header -->
+  <rect x="10" y="10" width="720" height="40" fill="#f0f0f0" stroke="#000000" stroke-width="2" rx="10" ry="10" />
+  <rect x="10" y="30" width="720" height="20" fill="#f0f0f0" />
+  <line x1="10" y1="50" x2="730" y2="50" stroke="#000000" stroke-width="2" />
+  <text x="370" y="34" class="title">Activity Diagram: Checkout &amp; Buat Pesanan (Pelanggan)</text>
+
+  <!-- Swimlane Divider -->
+  <line x1="330" y1="50" x2="330" y2="910" class="border-line" />
+
+  <!-- Lane Headers -->
+  <rect x="10" y="50" width="320" height="30" fill="#fafafa" stroke="#000000" stroke-width="1" />
+  <rect x="330" y="50" width="400" height="30" fill="#fafafa" stroke="#000000" stroke-width="1" />
+  <text x="170" y="70" class="lane-title">Pelanggan (Aktor)</text>
+  <text x="530" y="70" class="lane-title">Sistem (Aplikasi)</text>
+
+  <!-- ================= PELANGGAN LANE ELEMENTS ================= -->
+  <circle cx="170" cy="100" r="10" class="start-node" />
+  
+  <rect x="80" y="140" width="180" height="50" class="rect-node" />
+  <text x="170" y="164" class="text-node">Mengakses Halaman Keranjang</text>
+  <text x="170" y="178" class="text-node">&amp; Klik Lanjut ke Checkout</text>
+
+  <rect x="80" y="220" width="180" height="50" class="rect-node" />
+  <text x="170" y="244" class="text-node">Mengisi Formulir Pemesanan</text>
+  <text x="170" y="258" class="text-node">(Nama, No WA, Tipe Pesanan)</text>
+
+  <!-- Action: Lengkapi Alamat -->
+  <rect x="80" y="380" width="180" height="50" class="rect-node" />
+  <text x="170" y="409" class="text-node">Melengkapi Alamat Pengiriman</text>
+
+  <!-- Action: Klik Buat Pesanan -->
+  <rect x="80" y="470" width="180" height="50" class="rect-node" />
+  <text x="170" y="499" class="text-node">Mengeklik Tombol Buat Pesanan</text>
+
+  <!-- Action: Redirect -->
+  <rect x="80" y="790" width="180" height="50" class="rect-node" />
+  <text x="170" y="814" class="text-node">Menerima Pengalihan ke Halaman</text>
+  <text x="170" y="828" class="text-node">Konfirmasi Pembayaran</text>
+
+  <circle cx="170" cy="875" r="10" class="end-node-outer" />
+  <circle cx="170" cy="875" r="6" class="end-node-inner" />
+
+  <!-- ================= SISTEM LANE ELEMENTS ================= -->
+  <rect x="440" y="140" width="180" height="50" class="rect-node" />
+  <text x="530" y="164" class="text-node">Menampilkan Halaman Checkout</text>
+  <text x="530" y="178" class="text-node">&amp; Formulir Identitas Pemesan</text>
+
+  <!-- Decision: Delivery? -->
+  <polygon points="530,280 600,320 530,360 460,320" class="diamond-node" />
+  <text x="530" y="324" class="text-node" style="font-size: 11px;">Metode Delivery?</text>
+
+  <!-- Action: Alamat Input -->
+  <rect x="350" y="380" width="140" height="50" class="rect-node" />
+  <text x="420" y="409" class="text-node">Tampilkan Input Alamat</text>
+
+  <!-- Action: Tambah Ongkir -->
+  <rect x="540" y="380" width="140" height="50" class="rect-node" />
+  <text x="610" y="404" class="text-node">Tambah Ongkir Rp 10.000</text>
+  <text x="610" y="418" class="text-node">ke Grand Total Belanja</text>
+
+  <!-- Decision: Lengkap? -->
+  <polygon points="530,470 600,510 530,550 460,510" class="diamond-node" />
+  <text x="530" y="514" class="text-node" style="font-size: 9px;">Apakah Lengkap?</text>
+
+  <!-- Action: DB Transaction -->
+  <rect x="420" y="580" width="220" height="50" class="rect-node" />
+  <text x="530" y="604" class="text-node">Memulai DB Transaction &amp; Menyimpan</text>
+  <text x="530" y="618" class="text-node">ke Tabel pesanan &amp; detail_pesanan</text>
+
+  <!-- Decision: DB OK? -->
+  <polygon points="530,650 600,690 530,730 460,690" class="diamond-node" />
+  <text x="530" y="694" class="text-node" style="font-size: 11px;">DB Query Sukses?</text>
+
+  <!-- Action: Commit & Clear -->
+  <rect x="440" y="790" width="180" height="50" class="rect-node" />
+  <text x="530" y="814" class="text-node">Commit Transaksi Database</text>
+  <text x="530" y="828" class="text-node">&amp; Mengosongkan Sesi Keranjang</text>
+
+  <!-- ================= EDGES & CONNECTIONS ================= -->
+  <!-- Start -> Akses -->
+  <line x1="170" y1="110" x2="170" y2="140" class="line" marker-end="url(#arrow)" />
+
+  <!-- Akses -> Tampil (Cross Lane) -->
+  <line x1="260" y1="175" x2="440" y2="175" class="line" marker-end="url(#arrow)" />
+
+  <!-- Tampil -> Isi Form (Cross Lane) -->
+  <path d="M 440 175 L 320 175 L 320 245 L 260 245" class="line" marker-end="url(#arrow)" />
+
+  <!-- Isi Form -> Delivery? (Cross Lane) -->
+  <line x1="260" y1="250" x2="460" y2="320" class="line" marker-end="url(#arrow)" />
+
+  <!-- Delivery? -> Alamat Input [Ya] -->
+  <path d="M 460 320 L 420 320 L 420 380" class="line" marker-end="url(#arrow)" />
+  <text x="435" y="310" class="label-edge">Ya</text>
+
+  <!-- Alamat Input -> Alamat Isi (Cross Lane) -->
+  <line x1="350" y1="405" x2="260" y2="405" class="line" marker-end="url(#arrow)" />
+
+  <!-- Alamat Isi -> Ongkir (Cross Lane) -->
+  <line x1="260" y1="415" x2="540" y2="415" class="line" marker-end="url(#arrow)" />
+
+  <!-- Ongkir -> Klik Pesan (Cross Lane) -->
+  <path d="M 610 430 L 610 455 L 260 455 L 260 470" class="line" marker-end="url(#arrow)" />
+
+  <!-- Delivery? -> Klik Pesan [Tidak] (Cross Lane) -->
+  <path d="M 600 320 L 660 320 L 660 455 L 260 455 L 260 470" class="line" marker-end="url(#arrow)" />
+  <text x="635" y="310" class="label-edge">Tidak</text>
+
+  <!-- Klik Pesan -> Lengkap? (Cross Lane) -->
+  <line x1="260" y1="495" x2="460" y2="510" class="line" marker-end="url(#arrow)" />
+
+  <!-- Lengkap? -> Isi Form [Tidak] (Cross Lane Loop) -->
+  <path d="M 460 510 L 320 510 L 320 245 L 260 245" class="line" marker-end="url(#arrow)" />
+  <text x="365" y="495" class="label-edge">Tidak (Error)</text>
+
+  <!-- Lengkap? -> DB Query [Ya] -->
+  <line x1="530" y1="550" x2="530" y2="580" class="line" marker-end="url(#arrow)" />
+  <text x="545" y="565" class="label-edge">Ya</text>
+
+  <!-- DB Query -> DB OK? -->
+  <line x1="530" y1="630" x2="530" y2="650" class="line" marker-end="url(#arrow)" />
+
+  <!-- DB OK? -> Isi Form [Tidak] (Cross Lane Loop) -->
+  <path d="M 460 690 L 320 690 L 320 245 L 260 245" class="line" marker-end="url(#arrow)" />
+  <text x="365" y="675" class="label-edge">Tidak (Rollback)</text>
+
+  <!-- DB OK? -> Commit [Ya] -->
+  <line x1="530" y1="730" x2="530" y2="790" class="line" marker-end="url(#arrow)" />
+  <text x="545" y="755" class="label-edge">Ya</text>
+
+  <!-- Commit -> Redirect (Cross Lane) -->
+  <line x1="440" y1="815" x2="260" y2="815" class="line" marker-end="url(#arrow)" />
+
+  <!-- Redirect -> End -->
+  <line x1="170" y1="840" x2="170" y2="865" class="line" marker-end="url(#arrow)" />
+
+</svg>
