@@ -2,6 +2,8 @@
 // Koneksi ke database dan inisialisasi session
 require_once 'config/database.php';
 
+/** @var mysqli $conn */
+
 // Cek jika session belum dimulai
 if (session_status() === PHP_SESSION_NONE) {
     session_start();

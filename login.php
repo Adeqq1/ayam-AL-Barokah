@@ -2,6 +2,8 @@
 // Halaman Login Ayam Penyet Al-Barokah (Admin & Pelanggan)
 require_once 'config/database.php';
 
+/** @var mysqli $conn */
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }

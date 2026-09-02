@@ -3,6 +3,8 @@
 require_once '../config/database.php';
 require_once '../includes/fungsi-keranjang.php';
 
+/** @var mysqli $conn */
+
 // Inisialisasi session jika belum aktif
 if (session_status() === PHP_SESSION_NONE) {
     session_start();

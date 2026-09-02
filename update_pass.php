@@ -1,6 +1,8 @@
 <?php
 // Script Perbaikan Password Admin - Ayam Penyet Al-Barokah
 require_once 'config/database.php';
+
+/** @var mysqli $conn */
 ?>
 <!DOCTYPE html>
 <html>

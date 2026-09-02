@@ -6,7 +6,8 @@ $db_password = "";
 $database = "db_pemesanan";
 
 // Fungsi untuk mencoba menjalankan MySQL jika mati
-function auto_start_mysql($skip_grant_tables = false) {
+function auto_start_mysql($skip_grant_tables = false)
+{
     // Deteksi path MySQL
     $mysqld = 'c:\\xampp1\\mysql\\bin\\mysqld.exe';
     $ini    = 'c:\\xampp1\\mysql\\bin\\my.ini';
@@ -39,7 +40,7 @@ function auto_start_mysql($skip_grant_tables = false) {
         file_put_contents($tmp_vbs, $vbs_content);
         pclose(popen('start /B "" wscript.exe "' . $tmp_vbs . '"', "r"));
     }
-    
+
     // Tunggu MySQL boot (3 detik pertama, cek tiap 0.5 detik)
     for ($i = 0; $i < 6; $i++) {
         usleep(500000); // 0.5 detik
@@ -60,13 +61,14 @@ function auto_start_mysql($skip_grant_tables = false) {
 }
 
 // Fungsi untuk memperbaiki privilege tables saat error 1130
-function repair_mysql_grants() {
+function repair_mysql_grants()
+{
     // Deteksi path mysql client
     $mysql_client = 'c:\\xampp1\\mysql\\bin\\mysql.exe';
     if (!file_exists($mysql_client)) {
         $mysql_client = 'c:\\xampp\\mysql\\bin\\mysql.exe';
     }
-    
+
     // Bersihkan orphaned .ibd files dari mysql system database
     $mysql_data_dirs = ['c:/xampp1/mysql/data/mysql/', 'c:/xampp/mysql/data/mysql/'];
     $orphan_tables = ['tb_penduduk', 'tb_pengaturan', 'tb_surat'];
@@ -78,23 +80,23 @@ function repair_mysql_grants() {
             }
         }
     }
-    
+
     // Start MySQL dengan skip-grant-tables
     $started = auto_start_mysql(true);
     if (!$started) return false;
-    
+
     // Perbaiki privilege via mysql client (karena skip-grant-tables aktif)
     $sql = "FLUSH PRIVILEGES; "
-         . "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '' WITH GRANT OPTION; "
-         . "GRANT ALL PRIVILEGES ON *.* TO 'root'@'127.0.0.1' IDENTIFIED BY '' WITH GRANT OPTION; "
-         . "GRANT ALL PRIVILEGES ON *.* TO 'root'@'::1' IDENTIFIED BY '' WITH GRANT OPTION; "
-         . "FLUSH PRIVILEGES;";
-    
+        . "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '' WITH GRANT OPTION; "
+        . "GRANT ALL PRIVILEGES ON *.* TO 'root'@'127.0.0.1' IDENTIFIED BY '' WITH GRANT OPTION; "
+        . "GRANT ALL PRIVILEGES ON *.* TO 'root'@'::1' IDENTIFIED BY '' WITH GRANT OPTION; "
+        . "FLUSH PRIVILEGES;";
+
     // Jalankan via mysql client
     $cmd = '"' . $mysql_client . '" -u root mysql -e "' . $sql . '"';
     @pclose(@popen($cmd, 'r'));
     sleep(1);
-    
+
     // Juga coba via mysqli langsung (skip-grant-tables memperbolehkan koneksi tanpa auth)
     $repair_conn = @mysqli_connect("127.0.0.1", "root", "", "mysql", 3306);
     if ($repair_conn) {
@@ -109,34 +111,35 @@ function repair_mysql_grants() {
         @mysqli_query($repair_conn, "FLUSH PRIVILEGES");
         @mysqli_close($repair_conn);
     }
-    
+
     // Restart MySQL tanpa skip-grant-tables (mode normal)
     @pclose(@popen('taskkill /F /IM mysqld.exe', 'r'));
     sleep(2);
     auto_start_mysql(false);
-    
+
     return true;
 }
 
 // Coba membuat koneksi ke database
+/** @var mysqli|false $conn */
 $conn = @mysqli_connect($host, $db_username, $db_password, $database);
 
 // Jika gagal koneksi, coba recovery otomatis
 if (!$conn) {
     $init_errno = mysqli_connect_errno();
-    
+
     if ($init_errno === 2002) {
         // Error 2002: MySQL server tidak jalan → coba start otomatis
         auto_start_mysql();
         $conn = @mysqli_connect($host, $db_username, $db_password, $database);
     }
-    
+
     if (!$conn && (mysqli_connect_errno() === 1130 || $init_errno === 1130)) {
         // Error 1130: Host not allowed → privilege table rusak, perbaiki otomatis
         repair_mysql_grants();
         $conn = @mysqli_connect($host, $db_username, $db_password, $database);
     }
-    
+
     if (!$conn && (mysqli_connect_errno() === 1045 || $init_errno === 1045)) {
         // Error 1045: Access denied → coba juga repair grants
         repair_mysql_grants();
@@ -148,7 +151,7 @@ if (!$conn) {
 if (!$conn) {
     $err_msg = mysqli_connect_error();
     $err_code = mysqli_connect_errno();
-    
+
     // Baca log MySQL jika gagal start
     $log_paths = [
         'c:/xampp1/mysql/data/mysql_error.log',
@@ -158,7 +161,7 @@ if (!$conn) {
     $log_content .= "Waktu: " . date('Y-m-d H:i:s') . "\n";
     $log_content .= "Koneksi Error: [{$err_code}] {$err_msg}\n\n";
     $log_content .= "=== 30 Baris Terakhir dari mysql_error.log ===\n";
-    
+
     $log_found = false;
     foreach ($log_paths as $lp) {
         if (file_exists($lp)) {
@@ -173,9 +176,9 @@ if (!$conn) {
     if (!$log_found) {
         $log_content .= "File mysql_error.log tidak ditemukan.\n";
     }
-    
+
     @file_put_contents(__DIR__ . "/db_error_report.txt", $log_content);
-    
+
     die("<h3>Koneksi ke database gagal!</h3>
          <p><strong>Error:</strong> [{$err_code}] {$err_msg}</p>
          <p>MySQL gagal dijalankan secara otomatis. Detail error log dari MySQL telah disimpan di <strong>config/db_error_report.txt</strong>. Silakan periksa file tersebut.</p>");
@@ -185,7 +188,8 @@ if (!$conn) {
 mysqli_set_charset($conn, "utf8mb4");
 
 // Fungsi download gambar tangguh (mendukung curl + bypass SSL untuk XAMPP Windows)
-function download_image_file($url, $filepath) {
+function download_image_file($url, $filepath)
+{
     $userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
     // Coba gunakan cURL dengan bypass SSL (cocok untuk XAMPP local)
     if (function_exists('curl_init')) {
@@ -204,7 +208,7 @@ function download_image_file($url, $filepath) {
             return @file_put_contents($filepath, $data) !== false;
         }
     }
-    
+
     // Fallback ke file_get_contents jika curl tidak ada
     $context = stream_context_create([
         "http" => [
@@ -220,7 +224,7 @@ function download_image_file($url, $filepath) {
     if ($data) {
         return @file_put_contents($filepath, $data) !== false;
     }
-    
+
     return false;
 }
 
@@ -268,4 +272,3 @@ if (!$tahu_crispy_size || $tahu_crispy_size < 1000 || $tahu_crispy_size === $tah
 @mysqli_query($conn, "UPDATE `menu` SET `foto`='kerupuk_udang.jpg' WHERE `nama_menu`='Kerupuk Udang Crispy'");
 @mysqli_query($conn, "UPDATE `menu` SET `nama_menu`='Pisang Goreng Kremes', `deskripsi`='Pisang kepok manis digoreng dengan balutan kremesan renyah. Luar garing, dalam lembut dan manis.', `harga`=8000, `foto`='pisang_goreng.jpg' WHERE `nama_menu`='Bakwan Goreng' OR `nama_menu`='Pisang Goreng Kremes'");
 @mysqli_query($conn, "UPDATE `menu` SET `foto`='tahu_crispy.jpg' WHERE `nama_menu`='Tahu Crispy Pedas'");
-?>

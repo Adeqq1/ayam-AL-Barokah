@@ -2,6 +2,8 @@
 // Halaman Konfirmasi Pembayaran Ayam Penyet Al-Barokah
 require_once '../config/database.php';
 
+/** @var mysqli $conn */
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }

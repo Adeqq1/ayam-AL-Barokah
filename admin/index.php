@@ -2,6 +2,8 @@
 // Dashboard Utama Admin - Ayam Penyet Al-Barokah
 require_once '../config/database.php';
 
+/** @var mysqli $conn */
+
 // Include Layout Header
 include_once 'templates/header.php';
 include_once 'templates/sidebar.php';
@@ -50,7 +52,7 @@ $result_recent = mysqli_query($conn, $query_recent);
             <i class="fa-solid fa-rupiah-sign"></i>
         </div>
     </div>
-    
+
     <div class="stat-card orders">
         <div class="stat-info">
             <h3>Total Pemesanan</h3>
@@ -60,7 +62,7 @@ $result_recent = mysqli_query($conn, $query_recent);
             <i class="fa-solid fa-cart-shopping"></i>
         </div>
     </div>
-    
+
     <div class="stat-card pending">
         <div class="stat-info">
             <h3>Pesanan Baru</h3>
@@ -70,7 +72,7 @@ $result_recent = mysqli_query($conn, $query_recent);
             <i class="fa-solid fa-bell fa-shake"></i>
         </div>
     </div>
-    
+
     <div class="stat-card menu-items">
         <div class="stat-info">
             <h3>Menu Terdaftar</h3>
@@ -90,7 +92,7 @@ $result_recent = mysqli_query($conn, $query_recent);
             Lihat Semua Pesanan <i class="fa-solid fa-arrow-right"></i>
         </a>
     </div>
-    
+
     <div class="table-responsive">
         <table class="admin-table">
             <thead>
@@ -106,7 +108,7 @@ $result_recent = mysqli_query($conn, $query_recent);
                 </tr>
             </thead>
             <tbody>
-                <?php 
+                <?php
                 if (mysqli_num_rows($result_recent) > 0) {
                     while ($row = mysqli_fetch_assoc($result_recent)) {
                 ?>
@@ -115,7 +117,7 @@ $result_recent = mysqli_query($conn, $query_recent);
                             <td><?= htmlspecialchars($row['nama_pemesan']) ?></td>
                             <td>
                                 <span style="font-weight: 600; text-transform: uppercase; font-size: 0.85rem;">
-                                    <?php 
+                                    <?php
                                     if ($row['tipe_pesanan'] === 'dine_in') echo 'Dine In';
                                     elseif ($row['tipe_pesanan'] === 'take_away') echo 'Take Away';
                                     elseif ($row['tipe_pesanan'] === 'delivery') echo 'Delivery';
@@ -124,7 +126,7 @@ $result_recent = mysqli_query($conn, $query_recent);
                             </td>
                             <td style="font-weight: 600;">Rp <?= number_format($row['total_harga'], 0, ',', '.') ?></td>
                             <td>
-                                <?php 
+                                <?php
                                 $status_b = $row['status_pembayaran'];
                                 if ($status_b === 'belum_bayar') {
                                     echo '<span class="badge badge-payment-unpaid">Belum Bayar</span>';
@@ -138,7 +140,7 @@ $result_recent = mysqli_query($conn, $query_recent);
                                 ?>
                             </td>
                             <td>
-                                <?php 
+                                <?php
                                 $status_p = $row['status_pesanan'];
                                 if ($status_p === 'pending') {
                                     echo '<span class="badge badge-pending">Baru (Pending)</span>';
@@ -158,7 +160,7 @@ $result_recent = mysqli_query($conn, $query_recent);
                                 </a>
                             </td>
                         </tr>
-                <?php 
+                <?php
                     }
                 } else {
                     echo '<tr><td colspan="8" style="text-align: center; padding: 25px; color: var(--text-muted);"><i class="fa-solid fa-inbox"></i> Belum ada pesanan masuk.</td></tr>';
@@ -182,7 +184,7 @@ $result_recent = mysqli_query($conn, $query_recent);
     </div>
 </div>
 
-<?php 
+<?php
 // Include Layout Footer
 include_once 'templates/footer.php';
 ?>

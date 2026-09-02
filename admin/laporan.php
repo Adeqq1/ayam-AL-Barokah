@@ -2,6 +2,8 @@
 // Halaman Laporan Hasil Penjualan Admin - Ayam Penyet Al-Barokah
 require_once '../config/database.php';
 
+/** @var mysqli $conn */
+
 // Cek session login admin via layout header
 include_once 'templates/header.php';
 include_once 'templates/sidebar.php';
