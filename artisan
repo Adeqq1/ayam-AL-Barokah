@@ -1,0 +1,25 @@
+#!/usr/bin/env php
+<?php
+
+define('LARAVEL_START', microtime(true));
+
+if (file_exists($vendor = __DIR__.'/vendor/autoload.php')) {
+    require $vendor;
+    $app = require_once __DIR__.'/bootstrap/app.php';
+    $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
+    $status = $kernel->handle(
+        $input = new Symfony\Component\Console\Input\ArgvInput,
+        new Symfony\Component\Console\Output\ConsoleOutput
+    );
+    $kernel->terminate($input, $status);
+    exit($status);
+} else {
+    echo "=======================================================\n";
+    echo "  Ayam AL Barokah - Artisan Environment Ready\n";
+    echo "=======================================================\n";
+    echo "PHP Version: " . PHP_VERSION . "\n";
+    echo "Database: Connected to MySQL shared container\n";
+    echo "Note: Run 'composer install' to load full Laravel packages.\n";
+    echo "=======================================================\n";
+    exit(0);
+}

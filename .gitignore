@@ -11,3 +11,7 @@ Desktop.ini
 
 # IDE temporary files
 .idea/
+
+# Environment configuration (contains production passwords)
+.env
+diagnostic.php
