@@ -118,7 +118,7 @@ include_once 'includes/header.php';
         </div>
         <div class="hero-image-wrapper">
             <div class="hero-image-circle"></div>
-            <img src="assets/images/hero-ayam-penyet.png" alt="Ayam Penyet Al-Barokah" class="hero-img" onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600&auto=format&fit=crop'">
+            <img src="assets/images/hero-ayam-penyet.png" alt="Ayam Penyet Al-Barokah" class="hero-img" onerror="this.src='assets/images/default-menu.jpg'">
         </div>
     </div>
 </section>
@@ -159,7 +159,7 @@ include_once 'includes/header.php';
                             <img src="assets/images/<?= htmlspecialchars($row['foto']) ?>" 
                                  alt="<?= htmlspecialchars($row['nama_menu']) ?>" 
                                  class="menu-card-img"
-                                 onerror="this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=500&auto=format&fit=crop'">
+                                 onerror="this.src='assets/images/default-menu.jpg'">
                         </div>
                         
                         <div class="menu-info">

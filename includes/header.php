@@ -35,11 +35,9 @@ $display_name  = $is_logged_in ? htmlspecialchars($_SESSION['nama_lengkap'] ?? $
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayam Penyet Al-Barokah - Lezat, Pedas, Nikmat</title>
     <meta name="description" content="Pesan Ayam Penyet Al-Barokah terlezat secara online. Tersedia layanan Dine-In, Take Away, dan Delivery. Nikmati pedas mantap sambal kami!">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Local Fonts & FontAwesome -->
+    <link rel="stylesheet" href="<?= $root_path ?>assets/css/fonts.css">
+    <link rel="stylesheet" href="<?= $root_path ?>assets/vendor/fontawesome/css/all.min.css">
     <!-- Custom Style Sheet -->
     <link rel="stylesheet" href="<?= $root_path ?>assets/css/style.css?v=2.0">
     <style>

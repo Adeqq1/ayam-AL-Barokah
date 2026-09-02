@@ -1,0 +1,13 @@
+# Backup files & temporary files
+.$*
+*.bkp
+*.tmp
+*.log
+
+# OS generated files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE temporary files
+.idea/

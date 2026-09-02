@@ -52,8 +52,9 @@ if ($current_role !== 'admin') {
         // AKSES DITOLAK — bukan pemilik pesanan ini
         http_response_code(403);
         echo "<!DOCTYPE html><html lang='id'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Akses Ditolak</title>";
+        echo "<link rel='stylesheet' href='../assets/css/fonts.css'>";
         echo "<link rel='stylesheet' href='../assets/css/style.css'>";
-        echo "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'></head>";
+        echo "<link rel='stylesheet' href='../assets/vendor/fontawesome/css/all.min.css'></head>";
         echo "<body style='min-height:100vh; display:flex; align-items:center; justify-content:center; background:#fdf2f2;'>";
         echo "<div style='text-align:center; padding:40px; background:#fff; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1); max-width:450px;'>";
         echo "<i class='fa-solid fa-shield-halved' style='font-size:4rem; color:#e74c3c; margin-bottom:20px;'></i>";

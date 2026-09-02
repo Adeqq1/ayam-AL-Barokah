@@ -67,10 +67,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Masuk - Ayam Penyet Al-Barokah</title>
-    <!-- Google Fonts & FontAwesome -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Local Fonts & FontAwesome -->
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         .login-body {
@@ -180,7 +179,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="login-card">
     <div class="login-header">
         <div class="login-logo">
-            <i class="fa-solid fa-fire-burner"></i> Ayam Penyet <span>Anjas</span>
+            <i class="fa-solid fa-fire-burner"></i> Ayam Penyet <span>Al-Barokah</span>
         </div>
         <p>Masuk untuk mulai memesan hidangan favorit Anda</p>
     </div>

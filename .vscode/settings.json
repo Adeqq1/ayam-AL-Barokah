@@ -1,0 +1,27 @@
+{
+    "files.associations": {
+        "*.php": "php"
+    },
+    "html.validate.scripts": false,
+    "html.validate.styles": false,
+    "html.format.enable": true,
+    "php.validate.enable": true,
+    "php.validate.run": "onType",
+    "intelephense.diagnostics.undefinedVariables": false,
+    "intelephense.diagnostics.undefinedConstants": false,
+    "intelephense.diagnostics.undefinedClassConstants": false,
+    "intelephense.diagnostics.undefinedTypes": false,
+    "intelephense.diagnostics.undefinedFunctions": false,
+    "intelephense.environment.includePaths": [
+        "config",
+        "includes",
+        "admin/templates"
+    ],
+    "intelephense.completion.insertUseDeclaration": true,
+    "editor.renderWhitespace": "selection",
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
+    }
+}

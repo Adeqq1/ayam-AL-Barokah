@@ -196,7 +196,8 @@ function download_image_file($url, $filepath) {
         curl_setopt($ch, CURLOPT_USERAGENT, $userAgent); // Set User-Agent
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Bypass SSL verification
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 15);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 3);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
         $data = curl_exec($ch);
         curl_close($ch);
         if ($data) {
@@ -207,7 +208,8 @@ function download_image_file($url, $filepath) {
     // Fallback ke file_get_contents jika curl tidak ada
     $context = stream_context_create([
         "http" => [
-            "header" => "User-Agent: " . $userAgent . "\r\n"
+            "header" => "User-Agent: " . $userAgent . "\r\n",
+            "timeout" => 2
         ],
         "ssl" => [
             "verify_peer" => false,

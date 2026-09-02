@@ -107,7 +107,7 @@ include_once '../includes/header.php';
                                         <img src="../assets/images/<?= htmlspecialchars($item['foto']) ?>" 
                                              alt="<?= htmlspecialchars($item['nama_menu']) ?>" 
                                              class="cart-item-img"
-                                             onerror="this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=150&auto=format&fit=crop'">
+                                             onerror="this.src='../assets/images/default-menu.jpg'">
                                         <div class="cart-item-info">
                                             <h4><?= htmlspecialchars($item['nama_menu']) ?></h4>
                                             <span><?= htmlspecialchars($item['kategori']) ?></span>

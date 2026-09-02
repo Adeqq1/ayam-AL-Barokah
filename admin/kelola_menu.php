@@ -1,5 +1,5 @@
 <?php
-// Halaman Kelola Menu Admin - Ayam Penyet Anjas
+// Halaman Kelola Menu Admin - Ayam Penyet Al-Barokah
 require_once '../config/database.php';
 
 // Cek session login admin via layout header
@@ -352,7 +352,7 @@ if ($action === 'edit_process' && $_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <?php if (!empty($row['foto']) && file_exists("../assets/images/" . $row['foto'])): ?>
                                         <img src="../assets/images/<?= htmlspecialchars($row['foto']) ?>" alt="Foto" class="menu-thumbnail">
                                     <?php else: ?>
-                                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=150&auto=format&fit=crop" alt="Default" class="menu-thumbnail">
+                                        <img src="../assets/images/default-menu.jpg" alt="Default" class="menu-thumbnail">
                                     <?php endif; ?>
                                 </td>
                                 <td style="font-weight: 600; color: var(--dark);"><?= htmlspecialchars($row['nama_menu']) ?></td>
