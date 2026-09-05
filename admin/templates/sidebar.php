@@ -28,6 +28,11 @@ $active_page = basename($_SERVER['PHP_SELF']);
                 <i class="fa-solid fa-chart-line"></i> Laporan Penjualan
             </a>
         </li>
+        <li class="<?= $active_page === 'db_error.php' ? 'active' : '' ?>">
+            <a href="../db_error.php" target="_blank">
+                <i class="fa-solid fa-database"></i> Status & Log DB
+            </a>
+        </li>
         <li style="margin-top: 20px;">
             <a href="../index.php" target="_blank" style="background: rgba(255,255,255,0.05); color: #ecf0f1;">
                 <i class="fa-solid fa-globe"></i> Lihat Toko Utama
