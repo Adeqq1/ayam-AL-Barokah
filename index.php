@@ -118,7 +118,7 @@ include_once 'includes/header.php';
 <section class="hero">
     <div class="container hero-grid">
         <div class="hero-content">
-            <h1>Selamat Pulang di <span> Ayam Penyet</span> Al-Barokah</h1>
+            <h1>Selamat Datang di <span> Ayam Penyet</span> Al-Barokah</h1>
             <p>Rasakan kelezatan ayam goreng renyah bumbu rempah pilihan yang dipenyet dengan sambal korek super pedas yang dibuat segar setiap hari.</p>
             <div class="hero-buttons">
                 <a href="#menu" class="btn btn-primary">
