@@ -15,3 +15,4 @@ Desktop.ini
 # Environment configuration (contains production passwords)
 .env
 diagnostic.php
+ubuntu-aws.pem
