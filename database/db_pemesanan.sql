@@ -42,36 +42,37 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `kategori` ENUM('makanan', 'minuman', 'paket', 'cemilan') NOT NULL,
   `foto` VARCHAR(255) DEFAULT NULL,
   `status` ENUM('tersedia', 'habis') NOT NULL DEFAULT 'tersedia',
-  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY `unique_nama_menu` (`nama_menu`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Insert data menu sampel (20 menu)
-INSERT INTO `menu` (`nama_menu`, `deskripsi`, `harga`, `kategori`, `foto`, `status`) VALUES
+-- Insert data menu sampel (20 menu) dengan foto menu terbaru
+INSERT INTO `menu` (`id`, `nama_menu`, `deskripsi`, `harga`, `kategori`, `foto`, `status`) VALUES
 -- MAKANAN (8 item)
-('Ayam Penyet Biasa', 'Ayam goreng renyah yang digeprek dengan sambal khas Al-Barokah yang pedas mantap, disajikan lengkap dengan tahu, tempe, dan lalapan segar.', 18000, 'makanan', 'ayam_penyet_biasa.jpg', 'tersedia'),
-('Ayam Penyet Jumbo', 'Porsi puas dengan ayam ukuran jumbo dibalur sambal bawang pedas level tinggi, tahu, tempe, lalapan, dan taburan kremesan renyah.', 23000, 'makanan', 'ayam_penyet_jumbo.jpg', 'tersedia'),
-('Bebek Penyet', 'Bebek goreng empuk dan gurih dengan bumbu meresap, dipenyet dengan sambal korek super pedas beserta lalapan.', 28000, 'makanan', 'bebek_penyet.jpg', 'tersedia'),
-('Tahu Tempe Penyet', 'Tahu dan tempe goreng gurih yang dipenyet bersama sambal terasi matang dan lalapan segar.', 10000, 'makanan', 'tahu_tempe_penyet.jpg', 'tersedia'),
-('Ayam Bakar Kecap', 'Ayam bakar dengan olesan kecap manis dan bumbu rempah pilihan, dibakar hingga harum kecokelatan. Disajikan dengan nasi, sambal, dan lalapan.', 25000, 'makanan', 'ayam_bakar.jpg', 'tersedia'),
-('Lele Penyet Sambal Bawang', 'Lele goreng garing dan renyah dipenyet dengan sambal bawang pedas khas Al-Barokah, tahu, tempe, dan lalapan segar.', 15000, 'makanan', 'lele_penyet.jpg', 'tersedia'),
-('Ayam Geprek Mozarella', 'Ayam geprek crispy berlumur sambal pedas dengan lelehan keju mozzarella di atasnya. Perpaduan pedas dan gurih yang menggugah selera.', 28000, 'makanan', 'ayam_geprek_mozarella.jpg', 'tersedia'),
-('Nasi Goreng Spesial', 'Nasi goreng bumbu rahasia Al-Barokah dengan telur ceplok, ayam suwir, sayuran, dan kerupuk udang. Porsi besar dan mengenyangkan.', 18000, 'makanan', 'nasi_goreng.jpg', 'tersedia'),
+(1, 'Ayam Penyet Biasa', 'Ayam goreng renyah yang digeprek dengan sambal khas Al-Barokah yang pedas mantap, disajikan lengkap dengan tahu, tempe, dan lalapan segar.', 18000, 'makanan', 'menu_1788590605.jpg', 'tersedia'),
+(2, 'Ayam Penyet Jumbo', 'Porsi puas dengan ayam ukuran jumbo dibalur sambal bawang pedas level tinggi, tahu, tempe, lalapan, dan taburan kremesan renyah.', 23000, 'makanan', 'menu_1788590594.jpg', 'tersedia'),
+(3, 'Bebek Penyet', 'Bebek goreng empuk dan gurih dengan bumbu meresap, dipenyet dengan sambal korek super pedas beserta lalapan.', 28000, 'makanan', 'default-menu.jpg', 'tersedia'),
+(4, 'Tahu Tempe Penyet', 'Tahu dan tempe goreng gurih yang dipenyet bersama sambal terasi matang dan lalapan segar.', 10000, 'makanan', 'menu_1788590520.jpg', 'tersedia'),
+(5, 'Ayam Bakar Kecap', 'Ayam bakar dengan olesan kecap manis dan bumbu rempah pilihan, dibakar hingga harum kecokelatan. Disajikan dengan nasi, sambal, dan lalapan.', 25000, 'makanan', 'menu_1788590474.jpg', 'tersedia'),
+(6, 'Lele Penyet Sambal Bawang', 'Lele goreng garing dan renyah dipenyet dengan sambal bawang pedas khas Al-Barokah, tahu, tempe, dan lalapan segar.', 15000, 'makanan', 'menu_1788590458.jpg', 'tersedia'),
+(7, 'Ayam Geprek Mozarella', 'Ayam geprek crispy berlumur sambal pedas dengan lelehan keju mozzarella di atasnya. Perpaduan pedas dan gurih yang menggugah selera.', 28000, 'makanan', 'default-menu.jpg', 'tersedia'),
+(8, 'Nasi Goreng Spesial', 'Nasi goreng bumbu rahasia Al-Barokah dengan telur ceplok, ayam suwir, sayuran, dan kerupuk udang. Porsi besar dan mengenyangkan.', 18000, 'makanan', 'menu_1788590363.jpg', 'tersedia'),
 -- PAKET (3 item)
-('Paket Ayam Penyet Ekonomis', 'Paket hemat sudah termasuk nasi putih hangat, ayam penyet ukuran sedang, tahu, tempe, lalapan, dan es teh manis.', 22000, 'paket', 'paket_ekonomis.jpg', 'tersedia'),
-('Paket Bebek Penyet Komplit', 'Paket lengkap bebek penyet dengan nasi putih, sambal korek, lalapan segar, tahu, tempe, dan minuman pilihan.', 35000, 'paket', 'paket_bebek.jpg', 'tersedia'),
-('Paket Jumbo Keluarga', 'Paket makan keluarga isi 4 porsi: 3 ayam penyet + 1 bebek penyet, 4 nasi putih, lalapan, tahu, tempe, dan 4 minuman. Hemat dan kenyang!', 95000, 'paket', 'paket_jumbo.jpg', 'tersedia'),
+(9, 'Paket Ayam Penyet Ekonomis', 'Paket hemat sudah termasuk nasi putih hangat, ayam penyet ukuran sedang, tahu, tempe, lalapan, dan es teh manis.', 22000, 'paket', 'default-menu.jpg', 'tersedia'),
+(10, 'Paket Bebek Penyet Komplit', 'Paket lengkap bebek penyet dengan nasi putih, sambal korek, lalapan segar, tahu, tempe, dan minuman pilihan.', 35000, 'paket', 'default-menu.jpg', 'tersedia'),
+(11, 'Paket Jumbo Keluarga', 'Paket makan keluarga isi 4 porsi: 3 ayam penyet + 1 bebek penyet, 4 nasi putih, lalapan, tahu, tempe, dan 4 minuman. Hemat dan kenyang!', 95000, 'paket', 'default-menu.jpg', 'tersedia'),
 -- MINUMAN (6 item)
-('Es Teh Manis', 'Teh manis dingin yang menyegarkan dahaga setelah menyantap hidangan pedas.', 5000, 'minuman', 'es_teh.jpg', 'tersedia'),
-('Es Jeruk Peras', 'Jeruk peras asli dengan rasa asam manis yang segar, disajikan dengan es batu.', 7000, 'minuman', 'es_jeruk.jpg', 'tersedia'),
-('Es Campur Al-Barokah', 'Es campur spesial dengan isian kelapa muda, alpukat, nangka, kolang-kaling, jelly, disiram susu kental manis dan sirup merah.', 12000, 'minuman', 'es_campur.jpg', 'tersedia'),
-('Es Kelapa Muda Segar', 'Kelapa muda pilihan langsung dari petani, segar dan manis alami. Disajikan dengan es batu dan isian kelapa mudanya.', 10000, 'minuman', 'es_kelapa.jpg', 'tersedia'),
-('Jus Alpukat Susu', 'Jus alpukat kental lembut berpadu susu segar, disajikan dingin dengan es batu dan siraman cokelat. Sehat dan mengenyangkan.', 12000, 'minuman', 'jus_alpukat.jpg', 'tersedia'),
-('Es Lemon Tea', 'Teh lemon dingin menyegarkan dengan rasa asam manis yang pas. Cocok menemani hidangan pedas Al-Barokah.', 8000, 'minuman', 'es_lemon_tea.jpg', 'tersedia'),
+(12, 'Es Teh Manis', 'Teh manis dingin yang menyegarkan dahaga setelah menyantap hidangan pedas.', 5000, 'minuman', 'menu_1788590707.jpg', 'tersedia'),
+(13, 'Es Jeruk Peras', 'Jeruk peras asli dengan rasa asam manis yang segar, disajikan dengan es batu.', 7000, 'minuman', 'menu_1788590694.jpg', 'tersedia'),
+(14, 'Es Campur Al-Barokah', 'Es campur spesial dengan isian kelapa muda, alpukat, nangka, kolang-kaling, jelly, disiram susu kental manis dan sirup merah.', 12000, 'minuman', 'menu_1788590676.jpg', 'tersedia'),
+(15, 'Es Kelapa Muda Segar', 'Kelapa muda pilihan langsung dari petani, segar dan manis alami. Disajikan dengan es batu dan isian kelapa mudanya.', 10000, 'minuman', 'menu_1788590652.jpg', 'tersedia'),
+(16, 'Jus Alpukat Susu', 'Jus alpukat kental lembut berpadu susu segar, disajikan dingin dengan es batu dan siraman cokelat. Sehat dan mengenyangkan.', 12000, 'minuman', 'menu_1788590632.jpg', 'tersedia'),
+(17, 'Es Lemon Tea', 'Teh lemon dingin menyegarkan dengan rasa asam manis yang pas. Cocok menemani hidangan pedas Al-Barokah.', 8000, 'minuman', 'menu_1788590618.jpg', 'tersedia'),
 -- CEMILAN (3 item)
-('Kerupuk Udang Crispy', 'Kerupuk udang asli goreng garing dan renyah. Cocok sebagai teman makan atau camilan santai.', 5000, 'cemilan', 'kerupuk_udang.jpg', 'tersedia'),
-('Pisang Goreng Kremes', 'Pisang kepok manis digoreng dengan balutan kremesan renyah. Luar garing, dalam lembut dan manis.', 8000, 'cemilan', 'pisang_goreng.jpg', 'tersedia'),
-('Tahu Crispy Pedas', 'Tahu sumedang goreng krispy berlumur bumbu pedas manis. Camilan favorit yang bikin nagih.', 7000, 'cemilan', 'tahu_crispy.jpg', 'tersedia')
-ON DUPLICATE KEY UPDATE `nama_menu` = `nama_menu`;
+(18, 'Kerupuk Udang Crispy', 'Kerupuk udang asli goreng garing dan renyah. Cocok sebagai teman makan atau camilan santai.', 5000, 'cemilan', 'menu_1788590940.jpg', 'tersedia'),
+(19, 'Pisang Goreng Kremes', 'Pisang kepok manis digoreng dengan balutan kremesan renyah. Luar garing, dalam lembut dan manis.', 8000, 'cemilan', 'menu_1788590844.jpg', 'tersedia'),
+(20, 'Tahu Crispy Pedas', 'Tahu sumedang goreng krispy berlumur bumbu pedas manis. Camilan favorit yang bikin nagih.', 7000, 'cemilan', 'menu_1788590813.jpg', 'tersedia')
+ON DUPLICATE KEY UPDATE `foto` = VALUES(`foto`), `nama_menu` = VALUES(`nama_menu`), `harga` = VALUES(`harga`), `kategori` = VALUES(`kategori`);
 
 -- --------------------------------------------------------
 -- 3. Tabel Pesanan (Transaksi Utama)

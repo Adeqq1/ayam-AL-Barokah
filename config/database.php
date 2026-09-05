@@ -100,10 +100,87 @@ if (!$conn) {
 // 4. Set Charset ke UTF-8
 mysqli_set_charset($conn, "utf8mb4");
 
-// 5. Helper Function untuk Aset Gambar Menu
-$dst_dir = __DIR__ . '/../assets/images/';
-if (is_dir($dst_dir)) {
-    if (!file_exists($dst_dir . 'kerupuk_udang.jpg') && file_exists($dst_dir . 'tahu_tempe_penyet.jpg')) {
-        @copy($dst_dir . 'tahu_tempe_penyet.jpg', $dst_dir . 'kerupuk_udang.jpg');
+// 5. Helper Function & Auto-Sync Gambar Menu
+/**
+ * Helper function untuk mendapatkan URL/path gambar menu dengan fallback aman & cache-busting.
+ *
+ * @param string|null $foto Nama file foto di database
+ * @param string $prefix Path relatif menuju folder assets/images/ (misal: 'assets/images/' atau '../assets/images/')
+ * @return string Path lengkap gambar dengan query string versi (?v=timestamp)
+ */
+function get_menu_image_src($foto, $prefix = 'assets/images/') {
+    static $legacy_map = [
+        'ayam_penyet_biasa.jpg'     => 'menu_1788590605.jpg',
+        'ayam_penyet_jumbo.jpg'     => 'menu_1788590594.jpg',
+        'bebek_penyet.jpg'          => 'default-menu.jpg',
+        'tahu_tempe_penyet.jpg'     => 'menu_1788590520.jpg',
+        'ayam_bakar.jpg'            => 'menu_1788590474.jpg',
+        'lele_penyet.jpg'           => 'menu_1788590458.jpg',
+        'ayam_geprek_mozarella.jpg' => 'default-menu.jpg',
+        'nasi_goreng.jpg'           => 'menu_1788590363.jpg',
+        'paket_ekonomis.jpg'        => 'default-menu.jpg',
+        'paket_bebek.jpg'           => 'default-menu.jpg',
+        'paket_jumbo.jpg'           => 'default-menu.jpg',
+        'es_teh.jpg'                => 'menu_1788590707.jpg',
+        'es_jeruk.jpg'              => 'menu_1788590694.jpg',
+        'es_campur.jpg'             => 'menu_1788590676.jpg',
+        'es_kelapa.jpg'             => 'menu_1788590652.jpg',
+        'jus_alpukat.jpg'           => 'menu_1788590632.jpg',
+        'es_lemon_tea.jpg'          => 'menu_1788590618.jpg',
+        'kerupuk_udang.jpg'         => 'menu_1788590940.jpg',
+        'pisang_goreng.jpg'         => 'menu_1788590844.jpg',
+        'tahu_crispy.jpg'           => 'menu_1788590813.jpg',
+    ];
+
+    $filename = trim((string)$foto);
+    if (!empty($filename) && isset($legacy_map[$filename])) {
+        $filename = $legacy_map[$filename];
+    }
+
+    $base_dir = dirname(__DIR__) . '/assets/images/';
+    if (empty($filename) || !file_exists($base_dir . $filename)) {
+        $filename = 'default-menu.jpg';
+    }
+
+    $file_path = $base_dir . $filename;
+    $v = file_exists($file_path) ? filemtime($file_path) : 1;
+
+    return rtrim($prefix, '/') . '/' . $filename . '?v=' . $v;
+}
+
+// 6. Auto-Sync Self-Healing Foto Menu
+// Jika di database lokal atau VPS masih ada nama foto legacy, lakukan sinkronisasi otomatis satu kali.
+if ($conn) {
+    $check_legacy = @mysqli_query($conn, "SELECT COUNT(*) as total FROM menu WHERE foto = 'ayam_penyet_biasa.jpg' OR foto = 'nasi_goreng.jpg'");
+    if ($check_legacy && ($row_legacy = mysqli_fetch_assoc($check_legacy)) && (int)$row_legacy['total'] > 0) {
+        @mysqli_query($conn, "DELETE FROM menu WHERE id > 20");
+        @mysqli_query($conn, "ALTER TABLE menu AUTO_INCREMENT = 21");
+        
+        $sync_updates = [
+            1  => 'menu_1788590605.jpg',
+            2  => 'menu_1788590594.jpg',
+            3  => 'default-menu.jpg',
+            4  => 'menu_1788590520.jpg',
+            5  => 'menu_1788590474.jpg',
+            6  => 'menu_1788590458.jpg',
+            7  => 'default-menu.jpg',
+            8  => 'menu_1788590363.jpg',
+            9  => 'default-menu.jpg',
+            10 => 'default-menu.jpg',
+            11 => 'default-menu.jpg',
+            12 => 'menu_1788590707.jpg',
+            13 => 'menu_1788590694.jpg',
+            14 => 'menu_1788590676.jpg',
+            15 => 'menu_1788590652.jpg',
+            16 => 'menu_1788590632.jpg',
+            17 => 'menu_1788590618.jpg',
+            18 => 'menu_1788590940.jpg',
+            19 => 'menu_1788590844.jpg',
+            20 => 'menu_1788590813.jpg',
+        ];
+        foreach ($sync_updates as $m_id => $m_foto) {
+            @mysqli_query($conn, "UPDATE menu SET foto = '$m_foto' WHERE id = $m_id");
+        }
     }
 }
+

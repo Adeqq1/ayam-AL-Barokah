@@ -106,7 +106,7 @@ include_once '../includes/header.php';
                             <tr>
                                 <td>
                                     <div class="cart-item-detail">
-                                        <img src="../assets/images/<?= htmlspecialchars($item['foto']) ?>" 
+                                        <img src="<?= get_menu_image_src($item['foto'], '../assets/images/') ?>" 
                                              alt="<?= htmlspecialchars($item['nama_menu']) ?>" 
                                              class="cart-item-img"
                                              onerror="this.src='../assets/images/default-menu.jpg'">

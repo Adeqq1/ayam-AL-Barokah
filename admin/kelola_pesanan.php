@@ -145,7 +145,7 @@ $filter_status = isset($_GET['filter']) ? mysqli_real_escape_string($conn, $_GET
                             <tr>
                                 <td>
                                     <div style="display: flex; align-items: center; gap: 10px;">
-                                        <img src="../assets/images/<?= htmlspecialchars($item['foto']) ?>" onerror="this.src='../assets/images/default-menu.jpg'" style="width: 40px; height: 40px; border-radius: 4px; object-fit: cover;">
+                                        <img src="<?= get_menu_image_src($item['foto'], '../assets/images/') ?>" onerror="this.src='../assets/images/default-menu.jpg'" style="width: 40px; height: 40px; border-radius: 4px; object-fit: cover;">
                                         <strong style="color: var(--dark); font-weight: 600;"><?= htmlspecialchars($item['nama_menu']) ?></strong>
                                     </div>
                                 </td>

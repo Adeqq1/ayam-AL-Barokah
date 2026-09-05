@@ -158,7 +158,7 @@ include_once 'includes/header.php';
                             <?php endif; ?>
                             
                             <!-- Menampilkan foto menu, fallback ke ilustrasi default jika foto kosong atau error -->
-                            <img src="assets/images/<?= htmlspecialchars($row['foto']) ?>" 
+                            <img src="<?= get_menu_image_src($row['foto'], 'assets/images/') ?>" 
                                  alt="<?= htmlspecialchars($row['nama_menu']) ?>" 
                                  class="menu-card-img"
                                  onerror="this.src='assets/images/default-menu.jpg'">

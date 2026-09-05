@@ -33,8 +33,8 @@ if ($action === 'delete') {
             $menu_item = mysqli_fetch_assoc($result_foto);
             $foto_name = $menu_item['foto'];
             
-            // Hapus file dari server jika ada dan bukan kosong
-            if (!empty($foto_name) && file_exists("../assets/images/" . $foto_name)) {
+            // Hapus file dari server jika ada dan bukan gambar default
+            if (!empty($foto_name) && $foto_name !== 'default-menu.jpg' && file_exists("../assets/images/" . $foto_name)) {
                 unlink("../assets/images/" . $foto_name);
             }
         }
@@ -127,8 +127,8 @@ if ($action === 'edit_process' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $allowed_exts = ['jpg', 'jpeg', 'png'];
         
         if (in_array($file_ext, $allowed_exts)) {
-            // Hapus foto lama dari server jika ada
-            if (!empty($foto_name) && file_exists("../assets/images/" . $foto_name)) {
+            // Hapus foto lama dari server jika ada dan bukan gambar default
+            if (!empty($foto_name) && $foto_name !== 'default-menu.jpg' && file_exists("../assets/images/" . $foto_name)) {
                 unlink("../assets/images/" . $foto_name);
             }
             
@@ -295,9 +295,10 @@ if ($action === 'edit_process' && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="admin-form-group">
                     <label for="foto" class="admin-form-label">Foto Produk (Biarkan kosong jika tidak diganti)</label>
                     <input type="file" id="foto" name="foto" class="admin-form-control" accept=".jpg,.jpeg,.png">
-                    <?php if (!empty($menu['foto'])): ?>
-                        <p style="margin-top: 5px; font-size: 0.82rem; color: var(--text-muted);">Foto saat ini: <strong><?= htmlspecialchars($menu['foto']) ?></strong></p>
-                    <?php endif; ?>
+                    <div style="margin-top: 8px; display: flex; align-items: center; gap: 10px;">
+                        <img src="<?= get_menu_image_src($menu['foto'] ?? '', '../assets/images/') ?>" alt="Preview" style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd;">
+                        <span style="font-size: 0.82rem; color: var(--text-muted);">Foto saat ini: <strong><?= htmlspecialchars(!empty($menu['foto']) ? $menu['foto'] : 'default-menu.jpg') ?></strong></span>
+                    </div>
                 </div>
                 
                 <div class="admin-form-group">
@@ -351,11 +352,7 @@ if ($action === 'edit_process' && $_SERVER['REQUEST_METHOD'] === 'POST') {
                     ?>
                             <tr>
                                 <td>
-                                    <?php if (!empty($row['foto']) && file_exists("../assets/images/" . $row['foto'])): ?>
-                                        <img src="../assets/images/<?= htmlspecialchars($row['foto']) ?>" alt="Foto" class="menu-thumbnail">
-                                    <?php else: ?>
-                                        <img src="../assets/images/default-menu.jpg" alt="Default" class="menu-thumbnail">
-                                    <?php endif; ?>
+                                    <img src="<?= get_menu_image_src($row['foto'], '../assets/images/') ?>" alt="<?= htmlspecialchars($row['nama_menu']) ?>" class="menu-thumbnail">
                                 </td>
                                 <td style="font-weight: 600; color: var(--dark);"><?= htmlspecialchars($row['nama_menu']) ?></td>
                                 <td style="text-transform: uppercase; font-weight: 500; font-size: 0.82rem;"><?= htmlspecialchars($row['kategori']) ?></td>
